@@ -43,10 +43,30 @@
         "Placeholder":"Enter a long text"
     },
     "Card":{
-        "Title": "Card Title"
+        "Title":"Card Title"
     },
     "Speedometer":{
-        "Title": "System Speedometer"
+        "Title":"System Speedometer"
+    },
+    "Sort":{
+        "Title":"Sorting Visualizer",
+        "Time":"Time",
+        "S":"s",
+        "SelectAlgo":"Select algorithm",
+        "Select":"Select",
+        "BubbleSort":"Bubble Sort",
+        "SelectionSort":"Selection Sort",
+        "InsertionSort":"Insertion Sort",
+        "QuickSort":"Quick Sort",
+        "Density":"Density",
+        "SortBTN":"Sort",
+        "StopBTN":"Stop",
+        "NewData":"New Data",
+        "ResetArray":"Reset Array",
+        "NotifyI1":"The data is too big , you many not see it clearly , try to resize the window",
+        "NotifyW1":"Please select a sorting algorithm!",
+        "Ascending":"Ascending",
+        "Descending":"Descending"
     },
     "API":{
         "Add":"Add API to start"

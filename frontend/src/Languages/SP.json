@@ -48,6 +48,26 @@
     "Speedometer":{
         "Title": "Velocímetro del Sistema"
     },
+    "Sort": {
+        "Title": "Visualizador de Ordenamiento",
+        "Time": "Tiempo",
+        "S": "s",
+        "SelectAlgo": "Selecciona un algoritmo",
+        "Select": "Seleccionar",
+        "BubbleSort": "Ordenamiento de Burbuja",
+        "SelectionSort": "Ordenamiento por Selección",
+        "InsertionSort": "Ordenamiento por Inserción",
+        "QuickSort": "Ordenamiento Rápido",
+        "Density": "Densidad",
+        "SortBTN": "Ordenar",
+        "StopBTN": "Detener",
+        "NewData": "Nuevos Datos",
+        "ResetArray": "Reiniciar Arreglo",
+        "NotifyI1": "Los datos son muy grandes, puede que no los veas claramente, intenta redimensionar la ventana",
+        "NotifyW1": "¡Por favor selecciona un algoritmo de ordenamiento!",
+        "Ascending": "Ascendente",
+        "Descending": "Descendente"
+    },
     "API":{
         "Add":"Agregar API para comenzar"
     },

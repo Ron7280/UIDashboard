@@ -48,6 +48,26 @@
     "Speedometer":{
         "Title": "Jauge du Système"
     },
+    "Sort": {
+        "Title": "Visualiseur de Tri",
+        "Time": "Temps",
+        "S": "s",
+        "SelectAlgo": "Sélectionnez un algorithme",
+        "Select": "Sélectionner",
+        "BubbleSort": "Tri à Bulles",
+        "SelectionSort": "Tri par Sélection",
+        "InsertionSort": "Tri par Insertion",
+        "QuickSort": "Tri Rapide",
+        "Density": "Densité",
+        "SortBTN": "Trier",
+        "StopBTN": "Arrêter",
+        "NewData": "Nouvelles Données",
+        "ResetArray": "Réinitialiser le Tableau",
+        "NotifyI1": "Les données sont trop volumineuses, vous pourriez ne pas les voir clairement, essayez de redimensionner la fenêtre",
+        "NotifyW1": "Veuillez sélectionner un algorithme de tri !",
+        "Ascending": "Croissant",
+        "Descending": "Décroissant"
+    },
     "API":{
         "Add":"Ajouter une API pour commencer"
     },

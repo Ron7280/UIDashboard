@@ -28,6 +28,7 @@ import { PiBooksLight } from "react-icons/pi";
 import { VscJson } from "react-icons/vsc";
 import { IoSpeedometer } from "react-icons/io5";
 import { IoLanguageSharp } from "react-icons/io5";
+import { RiBarChartGroupedLine } from "react-icons/ri";
 
 const DEFAULT_PROPS = {
   AI: {
@@ -257,6 +258,12 @@ const DEFAULT_PROPS = {
     height: 500,
     translateTo: "English",
     icon: IoLanguageSharp,
+  },
+  Sort: {
+    title: "",
+    width: 1000,
+    height: 600,
+    icon: RiBarChartGroupedLine,
   },
 };
 

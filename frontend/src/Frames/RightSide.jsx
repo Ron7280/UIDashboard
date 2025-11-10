@@ -33,6 +33,7 @@ import { useTranslation } from "react-i18next";
 import Linguistics_Prop from "../Properties/Linguistics_Prop";
 import LatestBooks_Prop from "../Properties/LatestBooks_Prop";
 import LatestMovie_Prop from "../Properties/LatestMovie_Prop";
+import Sort_Prop from "../Properties/Sort_Prop";
 
 const RightSide = ({
   components,
@@ -160,6 +161,7 @@ const RightSide = ({
                 ProgressBar: ProgressBar_Prop,
                 QR: QR_Prop,
                 Select: Select_Prop,
+                Sort: Sort_Prop,
                 Speedometer: Speedometer_Prop,
                 Table: Table_Prop,
                 Text: Text_Prop,
@@ -208,13 +210,11 @@ const RightSide = ({
                 className={`flex items-center ${
                   changeTheme ? "text-lightTeal" : "text-mainColor"
                 } justify-center gap-2
-               text-lg font-bold mb-3`}
+               text-lg font-bold mb-3 cursor-pointer`}
+                onClick={() => setHidePreview(!hidePreview)}
               >
                 {hidePreview ? t("RightSide.Preview") : t("RightSide.Show")}
-                <div
-                  className="cursor-pointer"
-                  onClick={() => setHidePreview(!hidePreview)}
-                >
+                <div>
                   {hidePreview ? <BiSolidHide size={20} /> : <IoMdEye />}
                 </div>
               </div>
