@@ -1,0 +1,241 @@
+{
+  "Dashboard": {
+    "Dashboard": "Dashboard",
+    "FullScreen": "Full Screen",
+    "EditMode": "Edit Mode",
+    "Drop": "Drop components here"
+  },
+  "LeftSide":{
+    "UI":"UI Components",
+    "For":"For React Developers",
+    "Search":"Search components . . .",
+    "Tip1":"Tip : drag & drop components onto the dashboard",
+    "Tip2":" Tip 2 : click on the component to customize it"
+  },
+  "RightSide":{
+    "Properties":"Properties",
+    "Type":"Type",
+    "Preview":"Preview",
+    "Show":"Show Preview",
+    "Tip":"Select a component from the dashboard to edit its properties."
+  },
+  "TitleSetter":{
+    "Title":"Title",
+    "Placeholder":"Title here . . .",
+    "Set":"Set Title"
+  },
+  "DragCompo":{
+    "AI":{
+        "Placeholder":"At Your Service . . .",
+        "Ask":"Ask",
+        "Response":"AI response will appear here . . ."
+    },
+    "Button":{
+        "Text":"Click Me"
+    },
+    "Text":{
+         "Text":"This is a text component"
+    },
+     "Input":{
+        "Placeholder":"Enter a text"
+    },
+    "Textarea":{
+        "Placeholder":"Enter a long text"
+    },
+    "Card":{
+        "Title": "Card Title"
+    },
+    "Speedometer":{
+        "Title": "System Speedometer"
+    },
+    "API":{
+        "Add":"Add API to start"
+    },
+    "Checkbox":{
+        "Checked":"Checked",
+        "NotChecked":"Not checked",
+        "Label":"Check me"
+    },
+    "LatestBooks":{
+        "NoCover":"No Cover",
+        "Unknown":"Unknown",
+        "Author":"Author",
+        "Published":"First Published",
+        "NA":"N/A",
+        "Books":"Books"
+    },
+    "LatestMovies":{
+        "Year":"Year",   
+        "NA":"N/A",
+        "Genres":"Genres",
+        "Plot":"Plot",
+        "NoDescription":"No description available.",
+        "Movies":"Movies"
+    },
+    "Linguistics":{
+        "Title":"AI Language Tutor",
+        "Select":"Select a language",
+        "Placeholder":"How many words? . . .",
+        "Generate":"Generate Words",
+        "Original":"Original",
+        "Translate":"Translate",
+        "New":"New Words :",
+        "Sentence":"Sentence :",
+        "notifyW1":"Please select a language first!",
+        "notifyW2":"Select how many words",
+        "notifyE1":"Too many words — select up to 10 max.",
+        "notifyE2":"No content to translate!",
+        "notifyS1":"Good Luck"
+    },
+    "Notepad":{
+        "Placeholder":"Write your notes here . . .",
+        "TodoPlaceholder":"New task . . .",
+        "Title": "My Notes"
+    },
+    "TicTacToe":{
+        "Winner":"Winner",
+        "NextPlayer":"Next Player",
+        "Restart":"Restart"
+    },
+    "Video":{
+        "Title":"YouTube video player",
+        "NotSupport":"Your browser does not support the video tag."
+    }
+  },
+  "EditProps":{
+    "AI_Props":{
+        "Answer":"Answer"
+    },
+    "API_Props":{
+        "Set":"Set API",
+        "Placeholder":"API here . . . ",
+        "Method":"Method",
+        "SetBTN":"Set"
+    },
+    "Avatar_Props":{
+        "Name":"Name",
+        "Image":"Image Path",
+        "Choose":"Choose",
+        "ChooseAvatar":"Choose Avatar"
+    },
+    "Button_Props":{
+        "Text":"Text",
+        "Color":"Color",
+        "Action":"Action",
+        "ShowAlert":"Show Alert",
+        "OpenLink":"Open Link",
+        "MoreData":"More Data",
+        "Toggle":"Toggle",
+        "Ask":"Ask",
+        "Check":"Check",
+        "NewRate":"New Rate",
+        "ChangeImage":"Change Image",
+        "ActionValue":"Action Value",
+        "InteractWith":"Interact With",
+        "Select":"Select a component . . .",
+        "AlertType":"Alert Type"
+    },
+    "Card_Props":{
+        "Title":"Title",
+        "Content":"Content"
+    },
+    "Chat_Props":{
+        "Type":"Chart Type",     
+        "Link":"API URL",
+        "Placeholder":"Enter API URL",
+        "Set":"Set API",
+        "X_Label":"X-axis (Label)",
+        "Select":"Select Label Key",
+        "Y_Label":"Y-axis (Values)",
+        "Tip":"Hold Ctrl (Cmd) to select multiple fields"
+    },
+    "CountdownTimer_Prop":{
+        "Start":"Start Time (HH:MM:SS)",
+        "Set":"Set",
+        "ResetTimer":"Reset Timer"
+    },
+    "DigitalClock_Prop":{
+        "Color":"Color",
+        "Size":"Font Size",
+        "Format":"Format",
+        "24Hour":"24 Hour",
+        "12Hour":"12 Hour"
+    },
+    "Image_Prop":{
+        "Path":"Image Path",
+        "Choose":"Choose",
+        "Image":"Choose Image"
+    },
+    "Linguistics_Prop":{
+        "TranslateTo":"Translate to",
+        "Select":"Select a language"
+    },
+    "Loader_Prop":{
+        "Type":"Type"
+    },
+    "Map_Prop":{
+      "Latitude":"Latitude",
+      "Longitude":"Longitude",
+      "Tip":"Click on the map to update coordinates automatically."
+    },
+    "Notepad_Prop":{
+        "Type":"Notepad Type",
+        "Text":"Text",
+        "List":"To-Do List",
+        "Title":"Title",
+        "Placeholder":"Enter notepad title . . ."
+    },
+    "ProgressBar_Prop":{
+        "Value":"Value"
+    },
+    "QR_Prop":{
+        "Link":"Link / Value",
+        "Placeholder":"Enter URL or text",
+        "Type":"Type"
+    },
+    "Select_Prop":{
+        "Options":"Options",
+        "Add":"Add Option"
+    },
+    "Speedometer_Prop":{
+        "Select":"Select"
+    },
+    "Table_Prop":{
+        "Columns":"Columns",
+        "Title":"Title",
+        "Key":"Key",
+        "AddColumn":"Add Column",
+        "Rows":"Rows",
+        "AddRow":"Add Row",
+        "Excel":"Excel",
+        "Import":"Import",
+        "Export":"Export"
+    },
+    "Text_Prop":{
+        "Text":"Text",
+        "Color":"Color",
+        "SetAs":"Set as",
+        "Select":"Select",
+        "MainName":"Main Name",
+        "Set":"Set"
+    },
+    "Toggle_prop":{
+        "Action":"Action",
+        "Toggle":"Toggle",
+        "ChangeTheme":"Change Theme",
+        "ChangeLanguage":"Change Language",
+        "Lang":"Select The Languages",
+        "StopTimer":"Stop Timer"
+    },
+    "Video_Prop":{
+        "Link":"Video URL or Youtube link",
+        "Placeholder":"Paste video URL here",
+        "Choose":"Choose file",
+        "Auto":"Auto play",
+        "Controls":"Controls Bar",
+        "InteractWith":"Interact With",
+        "Select":"Select a component . . ."
+    }
+  }
+}
+

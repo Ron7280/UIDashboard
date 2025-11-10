@@ -1,0 +1,240 @@
+{
+  "Dashboard": {
+    "Dashboard": "لوحة التحكم",
+    "FullScreen": "شاشة كاملة",
+    "EditMode": "وضع التعديل",
+    "Drop": "ضع المكونات هنا"
+  },
+  "LeftSide":{
+    "UI":"عناصر UI",
+    "For":"لمطوري React",
+    "Search":". . . ابحث عن مكونات",
+    "Tip1":"#1 : امسك و ضع المكونات في الواجهة",
+    "Tip2":"#2 : انقر على المكون لتعديله"
+  },
+  "RightSide":{
+    "Properties":"الخصائص",
+    "Type":"النوع",
+    "Preview":"عرض",
+    "Show":"اظهار العرض",
+    "Tip":"اختار مكون من الواجهة لتعديل خضائصه." 
+  },
+  "TitleSetter":{
+    "Title":"العنوان",
+    "Placeholder":"العنوان هنا . . .",
+    "Set":"ضع العنوان"
+  },
+  "DragCompo":{
+    "AI":{
+        "Placeholder":"ما هو سؤالك؟ . . .",
+        "Ask":"اسئل",
+        "Response":"جواب AI سيظهر هنا . . ."
+    },
+    "Button":{
+        "Text":"انقر هنا"
+    },
+    "Text":{
+         "Text":"هذا مكون نصي"
+    },
+    "Input":{
+        "Placeholder":"ادخل نص"
+    },
+    "Textarea":{
+        "Placeholder":"ادخل نص طويل"
+    },
+    "Card":{
+        "Title": "عنوان البطاقة"
+    },
+    "Speedometer":{
+        "Title": "نظام مقياس السرعة"
+    },
+    "API":{
+        "Add":"أضف API للبدء"
+    },
+    "Checkbox":{
+        "Checked":"مؤكد",
+        "NotChecked":"غير مؤكد",
+        "Label":"تأكد"
+    },
+    "LatestBooks":{
+        "NoCover":"لا غلاف",
+        "Unknown":"غير معروف",
+        "Author":"مؤلف",
+        "Published":"نشر أول مرة",
+        "NA":"N/A",
+        "Books":"كتب"
+    },
+    "LatestMovies":{
+        "Year":"السنة",   
+        "NA":"N/A",
+        "Genres":"أنواع",
+        "Plot":"القصة",
+        "NoDescription":"لا يوجد شرح متاح.",
+        "Movies":"أفلام"
+    },
+    "Linguistics":{
+        "Title":"مدرب اللغة بالذكاء الاصطناعي",
+        "Select":"اختر لغة",
+        "Placeholder":"كم عدد الكلمات؟ . . .",
+        "Generate":"إنشاء الكلمات",
+        "Original":"الأصل",
+        "Translate":"ترجمة",
+        "New":"كلمات جديدة :",
+        "Sentence":"جملة :",
+        "notifyW1": "يرجى اختيار لغة أولاً!",
+        "notifyW2": "اختر عدد الكلمات",
+        "notifyE1": "عدد كبير جدًا من الكلمات — الحد الأقصى 10.",
+        "notifyE2": "لا يوجد محتوى للترجمة!",
+        "notifyS1": "حظًا سعيدًا"
+    },
+    "Notepad":{
+        "Placeholder":"اكتب ملاحظاتك هنا . . . ",
+        "TodoPlaceholder":"مهمة جديدة . . .",
+        "Title": "ملاحظاتي"
+    },
+    "TicTacToe":{
+        "Winner":"الفائز",
+        "NextPlayer":"اللاعب التالي",
+        "Restart":"أعادة"
+    },
+    "Video":{
+        "Title":"YouTube مشغل",
+        "NotSupport":"المتصفح خاصتك لا يدعم هذا النوع من الفيديوهات"
+    }
+  },
+  "EditProps":{
+    "AI_Props":{
+        "Answer":"الجواب"
+    },
+    "API_Props":{
+        "Set":"ضع API",
+        "Placeholder":"API هنا . . . ",
+        "Method":"طريقة",
+        "SetBTN":"اعتمد"
+    },
+    "Avatar_Props":{
+        "Name":"الاسم",
+        "Image Path":"مسار الصورة",
+        "Choose":"اختار",
+        "ChooseAvatar":"اختار صورة"
+    },
+     "Button_Props":{
+        "Text":"النص",
+        "Color":"اللون",
+        "Action":"الوظيفة",
+        "ShowAlert":"اظهار تنبيه",
+        "OpenLink":"فتح رابط",
+        "MoreData":"مزيد من البيانات",
+        "Toggle":"تبديل",
+        "Ask":"اسئل",
+        "Check":"تأكيد",
+        "NewRate":"تقيم جديد",
+        "ChangeImage":"تغيير الصورة",
+        "ActionValue":"القيمة",
+        "InteractWith":"التفاعل مع",
+        "Select":"اختار مكون . . .",
+        "AlertType":"نوع التنبيه"
+    },
+    "Card_Props":{
+        "Title":"العنوان",
+        "Content":"المضمون"
+    },
+    "Chat_Props":{
+        "Type":"نوع المخطط",     
+        "Link":"عنوان API",
+        "Placeholder":"ادخل عنوان API",
+        "Set":"ضع API",
+        "X_Label":"محور X (تصنيف)",
+        "Select":"اختار التصنيف",
+        "Y_Label":"محور Y (القيم)",
+        "Tip":"اضغط Ctrl لتحديد خيارات متعددة"
+    },
+    "CountdownTimer_Prop":{
+        "Start":"وقت البدء (HH:MM:SS)",
+        "Set":"وضع",
+        "ResetTimer":"ضبظ المؤقت"
+    },
+    "DigitalClock_Prop":{
+        "Color":"لون",
+        "Size":"حجم الخط",
+        "Format":"النمط",
+        "24Hour":"24 ساعة",
+        "12Hour":"12 ساعة"
+    },
+    "Image_Prop":{
+        "Path":"مسار الصورة",
+        "Choose":"اختار",
+        "Image":"اختار صورة"
+    },
+    "Linguistics_Prop":{
+        "TranslateTo":"ترجمة إلى",
+        "Select":"اختر لغة"
+    },
+    "Loader_Prop":{
+        "Type":"النوع"
+    },
+    "Map_Prop":{
+      "Latitude":"خط العرض",
+      "Longitude":"خط الطول",
+      "Tip":"انقر على الخريطة لتعديل الاحداثيات لشكل الي."
+    },
+    "Notepad_Prop":{
+        "Type":"نوع الملاحظة",
+        "Text":"نص",
+        "List":"قائمة مهام",
+        "Title":"عنوان",
+        "Placeholder":"ادخل عنوان الملاحظة"
+    },
+    "ProgressBar_Prop":{
+        "Value":"القيمة"
+    },
+    "QR_Prop":{
+        "Link":"رابط / قيمة",
+        "Placeholder":"ادخل رابد او نص",
+        "Type":"النوع"
+    },
+    "Select_Prop":{
+        "Options":"الخيارات",
+        "Add":"أضافة خيار"
+    },
+    "Speedometer_Prop":{
+        "Select":"اختار"
+    },
+    "Table_Prop":{
+        "Columns":"اعمدة",
+        "Title":"العنوان",
+        "Key":"الرمز",
+        "AddColumn":"أضافة عامود",
+        "Rows":"صفوف",
+        "AddRow":"اضافة صف",
+        "Excel":"ايكسل",
+        "Import":"استيراد",
+        "Export":"تصدير"
+    },
+    "Text_Prop":{
+        "Text":"النص",
+        "Color":"اللون",
+        "SetAs":"تعيين كـ",
+        "Select":"اختار",
+        "MainName":"الاسم الرئيسي",
+        "Set": "تعيين"
+    },
+    "Toggle_prop":{
+        "Action":"الوظيفة",
+        "Toggle":"تبديل",
+        "ChangeTheme":"تغير المظهر",
+        "ChangeLanguage":"تغير اللغة",
+        "Lang": "اختر اللغات",
+        "StopTimer":"إيقاف المؤقت"
+    },
+    "Video_Prop":{
+        "Link":"عنوان الفيديو او رابط اليوتيوب",
+        "Placeholder":"الصق عنوان الفيديو هنا",
+        "Choose":"اختار ملف",
+        "Auto":"تشغيل آلي",
+        "Controls":"خط التحكم",
+        "InteractWith":"التفاعل مع",
+        "Select":"اختار مكون . . ."
+    }
+  }
+}

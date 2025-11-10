@@ -1,0 +1,240 @@
+{
+  "Dashboard": {
+    "Dashboard": "Panel",
+    "FullScreen": "Pantalla Completa",
+    "EditMode": "Modo de Edición",
+    "Drop": "Suelta los componentes aquí"
+  },
+  "LeftSide":{
+    "UI":"Componentes UI",
+    "For":"Para Desarrolladores React",
+    "Search":"Buscar componentes . . .",
+    "Tip1":"Consejo: arrastra y suelta componentes en el panel",
+    "Tip2":"Consejo 2: haz clic en el componente para personalizarlo"
+  },
+  "RightSide":{
+    "Properties":"Propiedades",
+    "Type":"Tipo",
+    "Preview":"Vista previa",
+    "Show":"Mostrar Vista Previa",
+    "Tip":"Selecciona un componente del panel para editar sus propiedades."
+  },
+  "TitleSetter":{
+    "Title":"Título",
+    "Placeholder":"Título aquí . . .",
+    "Set":"Establecer Título"
+  },
+  "DragCompo":{
+    "AI":{
+        "Placeholder":"A tu servicio . . .",
+        "Ask":"Preguntar",
+        "Response":"La respuesta de la IA aparecerá aquí . . ."
+    },
+    "Button":{
+        "Text":"Haz clic"
+    },
+    "Text":{
+         "Text":"Este es un componente de texto"
+    },
+     "Input":{
+        "Placeholder":"Ingresa un texto"
+    },
+    "Textarea":{
+        "Placeholder":"Ingresa un texto largo"
+    },
+    "Card":{
+        "Title": "Título de la Tarjeta"
+    },
+    "Speedometer":{
+        "Title": "Velocímetro del Sistema"
+    },
+    "API":{
+        "Add":"Agregar API para comenzar"
+    },
+    "Checkbox":{
+        "Checked":"Marcado",
+        "NotChecked":"No marcado",
+        "Label":"Márcame"
+    },
+    "LatestBooks":{
+        "NoCover":"Sin Portada",
+        "Unknown":"Desconocido",
+        "Author":"Autor",
+        "Published":"Primera Publicación",
+        "NA":"N/D",
+        "Books":"Libros"
+    },
+    "LatestMovies":{
+        "Year":"Año",   
+        "NA":"N/D",
+        "Genres":"Géneros",
+        "Plot":"Sinopsis",
+        "NoDescription":"No hay descripción disponible.",
+        "Movies":"Películas"
+    },
+    "Linguistics":{
+        "Title":"Tutor de idioma con IA",
+        "Select":"Selecciona un idioma",
+        "Placeholder":"¿Cuántas palabras? . . .",
+        "Generate":"Generar palabras",
+        "Original":"Original",
+        "Translate":"Traducir",
+        "New":"Nuevas palabras :",
+        "Sentence":"Oración :",
+        "notifyW1": "¡Por favor selecciona un idioma primero!",
+        "notifyW2": "Selecciona cuántas palabras",
+        "notifyE1": "Demasiadas palabras — selecciona hasta 10 como máximo.",
+        "notifyE2": "¡No hay contenido para traducir!",
+        "notifyS1": "Buena suerte"
+    },
+    "Notepad":{
+        "Placeholder":"Escribe tus notas aquí . . .",
+        "TodoPlaceholder":"Nueva tarea . . .",
+        "Title": "Mis Notas"
+    },
+    "TicTacToe":{
+        "Winner":"Ganador",
+        "NextPlayer":"Siguiente Jugador",
+        "Restart":"Reiniciar"
+    },
+    "Video":{
+        "Title":"Reproductor de video YouTube",
+        "NotSupport":"Tu navegador no soporta la etiqueta de video."
+    }
+  },
+  "EditProps":{
+    "AI_Props":{
+        "Answer":"Respuesta"
+    },
+    "API_Props":{
+        "Set":"Establecer API",
+        "Placeholder":"API aquí . . . ",
+        "Method":"Método",
+        "SetBTN":"Establecer"
+    },
+    "Avatar_Props":{
+        "Name":"Nombre",
+        "Image":"Ruta de Imagen",
+        "Choose":"Elegir",
+        "ChooseAvatar":"Elegir Avatar"
+    },
+    "Button_Props":{
+        "Text":"Texto",
+        "Color":"Color",
+        "Action":"Acción",
+        "ShowAlert":"Mostrar Alerta",
+        "OpenLink":"Abrir Enlace",
+        "MoreData":"Más Datos",
+        "Toggle":"Alternar",
+        "Ask":"Preguntar",
+        "Check":"Revisar",
+        "NewRate":"Nueva Tasa",
+        "ChangeImage":"Cambiar Imagen",
+        "ActionValue":"Valor de Acción",
+        "InteractWith":"Interactuar Con",
+        "Select":"Selecciona un componente . . .",
+        "AlertType":"Tipo de alerta"
+    },
+    "Card_Props":{
+        "Title":"Título",
+        "Content":"Contenido"
+    },
+    "Chat_Props":{
+        "Type":"Tipo de Gráfico",     
+        "Link":"API URL",
+        "Placeholder":"Ingresa API URL",
+        "Set":"Establecer API",
+        "X_Label":"Eje X (Etiqueta)",
+        "Select":"Seleccionar Clave de Etiqueta",
+        "Y_Label":"Eje Y (Valores)",
+        "Tip":"Mantén Ctrl (Cmd) para seleccionar múltiples campos"
+    },
+    "CountdownTimer_Prop":{
+        "Start":"Hora de Inicio (HH:MM:SS)",
+        "Set":"Establecer",
+        "ResetTimer":"Reiniciar Temporizador"
+    },
+    "DigitalClock_Prop":{
+        "Color":"Color",
+        "Size":"Tamaño de Fuente",
+        "Format":"Formato",
+        "24Hour":"24 Horas",
+        "12Hour":"12 Horas"
+    },
+    "Image_Prop":{
+        "Path":"Ruta de Imagen",
+        "Choose":"Elegir",
+        "Image":"Elegir Imagen"
+    },
+    "Linguistics_Prop":{
+        "TranslateTo":"Traducir a",
+        "Select":"Selecciona un idioma"
+    },
+    "Loader_Prop":{
+        "Type":"Tipo"
+    },
+    "Map_Prop":{
+      "Latitude":"Latitud",
+      "Longitude":"Longitud",
+      "Tip":"Haz clic en el mapa para actualizar las coordenadas automáticamente."
+    },
+    "Notepad_Prop":{
+        "Type":"Tipo de Notas",
+        "Text":"Texto",
+        "List":"Lista de Tareas",
+        "Title":"Título",
+        "Placeholder":"Ingresa título de nota . . ."
+    },
+    "ProgressBar_Prop":{
+        "Value":"Valor"
+    },
+    "QR_Prop":{
+        "Link":"Enlace / Valor",
+        "Placeholder":"Ingresa URL o texto",
+        "Type":"Tipo"
+    },
+    "Select_Prop":{
+        "Options":"Opciones",
+        "Add":"Agregar Opción"
+    },
+    "Speedometer_Prop":{
+        "Select":"Seleccionar"
+    },
+    "Table_Prop":{
+        "Columns":"Columnas",
+        "Title":"Título",
+        "Key":"Clave",
+        "AddColumn":"Agregar Columna",
+        "Rows":"Filas",
+        "AddRow":"Agregar Fila",
+        "Excel":"Excel",
+        "Import":"Importar",
+        "Export":"Exportar"
+    },
+    "Text_Prop":{
+        "Text":"Texto",
+        "Color":"Color",
+        "SetAs": "Establecer como",
+        "Select": "Seleccionar",
+        "MainName": "Nombre principal",
+        "Set": "Establecer"
+    },
+    "Toggle_prop":{
+        "Action":"Acción",
+        "Toggle":"Alternar",
+        "ChangeTheme":"Cambiar Tema",
+        "ChangeLanguage":"Cambiar Idioma",
+        "Lang":"Selecciona los idiomas",
+        "StopTimer":"Detener temporizador"
+    },
+    "Video_Prop":{
+        "Link":"URL del Video o enlace de YouTube",
+        "Placeholder":"Pega aquí la URL del video",
+        "Choose":"Elegir archivo",
+        "Auto":"Reproducción automática",
+        "Controls":"Barra de Controles",
+        "InteractWith":"Interactuar Con",
+        "Select":"Selecciona un componente . . ."
+    }
+  }
+}

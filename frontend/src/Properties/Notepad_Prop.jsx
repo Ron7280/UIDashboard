@@ -1,0 +1,54 @@
+import React, { useContext } from "react";
+import TitleSetter from "../Components/TitleSetter";
+import { BiSolidNotepad } from "react-icons/bi";
+import { MdOutlineEditNote } from "react-icons/md";
+import { Change_Theme_context } from "../Contexts";
+import { useTranslation } from "react-i18next";
+
+const Notepad_Prop = ({ selectedComponent, handlePropChange }) => {
+  const [changeTheme, setChangeTheme] = useContext(Change_Theme_context);
+  const { t } = useTranslation();
+
+  return (
+    <div className="flex flex-col gap-4">
+      <TitleSetter
+        compName={selectedComponent.type}
+        handlePropChange={handlePropChange}
+        defaultValue={selectedComponent.props?.title}
+      />
+      <label
+        className={`${
+          changeTheme ? "text-white" : ""
+        } text-lg flex items-center gap-2 font-bold`}
+      >
+        <BiSolidNotepad size={25} />
+        {t("EditProps.Notepad_Prop.Type")}
+      </label>
+      <select
+        className="border rounded-md px-3 py-2 w-full outline-none"
+        value={selectedComponent.props?.type || "text"}
+        onChange={(e) => handlePropChange("type", e.target.value)}
+      >
+        <option value="text">{t("EditProps.Notepad_Prop.Text")}</option>
+        <option value="todo">{t("EditProps.Notepad_Prop.List")}</option>
+      </select>
+
+      <label
+        className={`${
+          changeTheme ? "text-white" : ""
+        } text-lg flex items-center gap-2 font-bold`}
+      >
+        <MdOutlineEditNote size={30} />
+        {t("EditProps.Notepad_Prop.Title")}
+      </label>
+      <input
+        value={selectedComponent.props?.title || ""}
+        onChange={(e) => handlePropChange("title", e.target.value)}
+        className="border rounded-md px-3 py-2 w-full outline-none"
+        placeholder={t("EditProps.Notepad_Prop.Placeholder")}
+      />
+    </div>
+  );
+};
+
+export default Notepad_Prop;
