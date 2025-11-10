@@ -18,7 +18,7 @@ import {
   Set_MainName_context,
 } from "../Contexts";
 import { useTranslation } from "react-i18next";
-import i18n from "C:/Users/rani/Desktop/dashboard/i18n.js";
+import i18n from "../../i18n.js";
 import { US, ES, FR, SY } from "country-flag-icons/react/3x2";
 import { Tooltip } from "@mui/material";
 
