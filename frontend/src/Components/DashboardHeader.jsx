@@ -1,4 +1,3 @@
-import React, { useRef } from "react";
 import { GrLanguage } from "react-icons/gr";
 import { IoIosMoon } from "react-icons/io";
 import {
@@ -8,9 +7,9 @@ import {
 } from "react-icons/md";
 import { Tooltip } from "@mui/material";
 import { IoRemoveCircle } from "react-icons/io5";
-import { useTranslation } from "react-i18next";
 import { US, ES, FR, SY } from "country-flag-icons/react/3x2";
 import { BiSolidDashboard } from "react-icons/bi";
+import { useTranslation } from "react-i18next";
 
 const DashboardHeader = ({
   changeTheme,
@@ -23,12 +22,11 @@ const DashboardHeader = ({
   ChangeLanguage,
   dropdownRef,
   pages,
-  activePage,
   removePage,
   set_MainName,
-  t,
   componentsLength,
 }) => {
+  const { t } = useTranslation();
   const LanguagesOptions = [
     { title: "EN", flag: US },
     { title: "AR", flag: SY },

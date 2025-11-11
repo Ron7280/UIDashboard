@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { MdAddToPhotos, MdEdit } from "react-icons/md";
 
 const PagesBar = ({

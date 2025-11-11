@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect, useRef } from "react";
+import { useContext, useState, useEffect, useRef } from "react";
 import { useDrop } from "react-dnd";
 import DraggableComponent from "../Components/DraggableComponent";
 import DEFAULT_PROPS from "./DEFAULT_PROPS";
@@ -240,7 +240,6 @@ const Dashboard = ({
         activePage={activePage}
         removePage={removePageHandler}
         set_MainName={set_MainName}
-        t={t}
         componentsLength={components.length}
       />
 
