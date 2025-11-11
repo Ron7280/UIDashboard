@@ -27,6 +27,7 @@ const DashboardHeader = ({
   componentsLength,
 }) => {
   const { t } = useTranslation();
+
   const LanguagesOptions = [
     { title: "EN", flag: US },
     { title: "AR", flag: SY },
@@ -36,7 +37,7 @@ const DashboardHeader = ({
 
   return (
     <div
-      className={`flex items-center h-[8%] justify-between ${
+      className={`flex items-center h-[5%] justify-between ${
         changeTheme ? "text-lightTeal" : "text-mainColor"
       } font-bold`}
     >

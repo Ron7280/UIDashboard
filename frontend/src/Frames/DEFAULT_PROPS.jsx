@@ -164,7 +164,7 @@ const DEFAULT_PROPS = {
     ],
     data: [{ name: "Ken Adams", age: 28, email: "Ken@example.com" }],
     width: 400,
-    height: 200,
+    height: 100,
     icon: FaTable,
   },
   Map: {

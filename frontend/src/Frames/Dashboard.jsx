@@ -255,7 +255,7 @@ const Dashboard = ({
       {components.length === 0 ? (
         !fullScreen && (
           <div
-            className={`h-[92%] rounded-lg border-2 border-dashed ${
+            className={`h-[91%] rounded-lg border-2 border-dashed ${
               changeTheme
                 ? "border-lightTeal text-lightTeal bg-gray-500"
                 : "border-mainColor text-gray-700 bg-white"
@@ -270,7 +270,7 @@ const Dashboard = ({
         )
       ) : (
         <div
-          className={`flex h-[92%] flex-wrap gap-3 justify-center items-start w-full p-2 overflow-auto
+          className={`flex h-[91%] flex-wrap gap-3 justify-center items-start w-full p-2 overflow-auto
           scrollbar-thin ${
             changeTheme
               ? "scrollbar-thumb-lightTeal"

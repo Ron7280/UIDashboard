@@ -205,7 +205,7 @@ const RightSide = ({
               return null;
             })()}
 
-            <div className="mt-6 ">
+            <div className="mt-6">
               <div
                 className={`flex items-center ${
                   changeTheme ? "text-lightTeal" : "text-mainColor"
