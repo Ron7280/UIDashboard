@@ -7,6 +7,9 @@ const TicTacToe = ({ props }) => {
   const [board, setBoard] = useState(Array(9).fill(null));
   const [xNext, setXNext] = useState(true);
   const { t } = useTranslation();
+  const [aiEnabled, setAiEnabled] = useState(false);
+  const aiPlayer = "O";
+  const humanPlayer = "X";
 
   function calculateWinner(board) {
     const lines = [
@@ -29,17 +32,54 @@ const TicTacToe = ({ props }) => {
 
   const handleClick = (idx) => {
     if (board[idx] || calculateWinner(board)) return;
+
     const newBoard = [...board];
-    newBoard[idx] = xNext ? (
-      <div className="text-mainColor">X</div>
-    ) : (
-      <div className="text-mainColor2">O</div>
-    );
+
+    if (!aiEnabled) {
+      newBoard[idx] = xNext ? "X" : "O";
+      setBoard(newBoard);
+      setXNext(!xNext);
+      return;
+    }
+
+    newBoard[idx] = humanPlayer;
     setBoard(newBoard);
-    setXNext(!xNext);
+    setXNext(false);
+
+    if (!calculateWinner(newBoard)) {
+      setTimeout(() => {
+        const move = findBestMove(newBoard);
+        if (move !== undefined) {
+          const aiBoard = [...newBoard];
+          aiBoard[move] = aiPlayer;
+          setBoard(aiBoard);
+          setXNext(true);
+        }
+      }, 500);
+    }
   };
 
   const winner = calculateWinner(board);
+
+  function findBestMove(board) {
+    const availableMoves = board
+      .map((v, i) => (v === null ? i : null))
+      .filter((v) => v !== null);
+
+    for (let move of availableMoves) {
+      const temp = [...board];
+      temp[move] = aiPlayer;
+      if (calculateWinner(temp) === aiPlayer) return move;
+    }
+
+    for (let move of availableMoves) {
+      const temp = [...board];
+      temp[move] = humanPlayer;
+      if (calculateWinner(temp) === humanPlayer) return move;
+    }
+
+    return availableMoves[Math.floor(Math.random() * availableMoves.length)];
+  }
 
   return (
     <div
@@ -71,20 +111,32 @@ const TicTacToe = ({ props }) => {
           </button>
         ))}
       </div>
-      <button
-        onClick={() => {
-          setBoard(Array(9).fill(null));
-          setXNext(true);
-        }}
-        className={`mt-2 px-3 py-1 text-white rounded 
-         ${
-           changeTheme
-             ? "  bg-mainColor2 hover:bg-SecondryTeal"
-             : " bg-mainColor hover:bg-mainColor"
-         } `}
-      >
-        {t("DragCompo.TicTacToe.Restart")}
-      </button>
+      <div className="flex gap-5 items-center justify-center font-semibold">
+        <button
+          onClick={() => {
+            setBoard(Array(9).fill(null));
+            setXNext(true);
+          }}
+          className={`mt-2 px-3 py-1 shadow-md shadow-black text-white rounded 
+         ${changeTheme ? "  bg-mainColor2" : " bg-mainColor"} `}
+        >
+          {t("DragCompo.TicTacToe.Restart")}
+        </button>
+        <button
+          onClick={() => setAiEnabled(!aiEnabled)}
+          className={`mt-2 px-3 py-1 shadow-md shadow-black text-white rounded ${
+            aiEnabled
+              ? "bg-blue-700"
+              : changeTheme
+              ? "bg-mainColor2 "
+              : "bg-blue-700"
+          }`}
+        >
+          {aiEnabled
+            ? t("DragCompo.TicTacToe.1vs1")
+            : t("DragCompo.TicTacToe.AIplayer")}
+        </button>
+      </div>
     </div>
   );
 };

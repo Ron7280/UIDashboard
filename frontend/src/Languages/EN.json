@@ -119,7 +119,9 @@
     "TicTacToe":{
         "Winner":"Winner",
         "NextPlayer":"Next Player",
-        "Restart":"Restart"
+        "Restart":"Restart",
+        "1vs1":"1 Vs 1",
+        "AIplayer":"AI Player"
     },
     "Video":{
         "Title":"YouTube video player",

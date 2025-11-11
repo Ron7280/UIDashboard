@@ -119,7 +119,9 @@
     "TicTacToe":{
         "Winner":"الفائز",
         "NextPlayer":"اللاعب التالي",
-        "Restart":"أعادة"
+        "Restart":"أعادة",
+        "1vs1": "1 ضد 1",
+        "AIplayer":"AI لاعب"
     },
     "Video":{
         "Title":"YouTube مشغل",

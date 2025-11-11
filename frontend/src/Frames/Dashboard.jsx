@@ -1,26 +1,18 @@
 import React, { useContext, useState, useEffect, useRef } from "react";
 import { useDrop } from "react-dnd";
-import {
-  MdDashboard,
-  MdOutlineScreenshotMonitor,
-  MdDashboardCustomize,
-} from "react-icons/md";
-import DEFAULT_PROPS from "./DEFAULT_PROPS";
 import DraggableComponent from "../Components/DraggableComponent";
-import { GrLanguage } from "react-icons/gr";
+import DEFAULT_PROPS from "./DEFAULT_PROPS";
 import { FaArrowDown } from "react-icons/fa";
 import { FiInbox } from "react-icons/fi";
-import { IoIosMoon } from "react-icons/io";
-import { MdLightMode } from "react-icons/md";
+import { useTranslation } from "react-i18next";
+import i18n from "../../i18n.js";
 import {
   Change_Language_context,
   Change_Theme_context,
   Set_MainName_context,
 } from "../Contexts";
-import { useTranslation } from "react-i18next";
-import i18n from "../../i18n.js";
-import { US, ES, FR, SY } from "country-flag-icons/react/3x2";
-import { Tooltip } from "@mui/material";
+import DashboardHeader from "../Components/DashboardHeader.jsx";
+import PagesBar from "../Components/PagesBar.jsx";
 
 const Dashboard = ({
   components,
@@ -35,20 +27,23 @@ const Dashboard = ({
   const [changeLanguage, setChangeLanguage] = useContext(
     Change_Language_context
   );
-
   const [set_MainName, setSet_MainName] = useContext(Set_MainName_context);
   const [showLangDropdown, setShowLangDropdown] = useState(false);
-  const { t } = useTranslation();
   const [lang, setLang] = useState("AR");
-  const dropdownRef = useRef(null);
   const [LangText, setLangText] = useState("AR");
+  const dropdownRef = useRef(null);
+  const { t } = useTranslation();
+  const [pages, setPages] = useState(() => {
+    const savedPages = localStorage.getItem("dashboard_pages");
+    return savedPages
+      ? JSON.parse(savedPages)
+      : [{ name: "Page 1", components: [] }];
+  });
 
-  const LanguagesOptions = [
-    { title: "EN", flag: US },
-    { title: "AR", flag: SY },
-    { title: "SP", flag: ES },
-    { title: "FR", flag: FR },
-  ];
+  const [activePage, setActivePage] = useState(() => {
+    const savedActivePage = localStorage.getItem("dashboard_activePage");
+    return savedActivePage ? Number(savedActivePage) : 0;
+  });
 
   const [{ isOver }, dropRef] = useDrop(() => ({
     accept: "COMPONENT",
@@ -59,10 +54,13 @@ const Dashboard = ({
           type,
           props: { ...(DEFAULT_PROPS[type] ? DEFAULT_PROPS[type] : {}) },
         };
-        setComponents((p) => [...p, { id: `comp-${Date.now()}`, ...newCompo }]);
+        setComponents((prev) => [
+          ...prev,
+          { id: `comp-${Date.now()}`, ...newCompo },
+        ]);
       }
     },
-    collect: (m) => ({ isOver: !!m.isOver() }),
+    collect: (monitor) => ({ isOver: !!monitor.isOver() }),
   }));
 
   const moveComponent = (from, to) => {
@@ -75,19 +73,14 @@ const Dashboard = ({
   };
 
   const ChangeLanguage = (e) => {
+    let newLang;
     if (e?.target?.value) {
-      const newLang = e.target.value;
-      setLang(newLang);
-      setLangText(newLang);
-      i18n.changeLanguage(newLang);
-      localStorage.setItem("lang", newLang);
-      document.body.dir = newLang === "AR" ? "rtl" : "ltr";
-      return;
+      newLang = e.target.value;
+    } else {
+      const { lang1, lang2 } = changeLanguage;
+      const currentLang = localStorage.getItem("lang") || lang1;
+      newLang = currentLang === lang1 ? lang2 : lang1;
     }
-
-    const { lang1, lang2 } = changeLanguage;
-    const currentLang = localStorage.getItem("lang") || lang1;
-    const newLang = currentLang === lang1 ? lang2 : lang1;
 
     setLang(newLang);
     setLangText(newLang);
@@ -104,9 +97,7 @@ const Dashboard = ({
     document.body.dir = savedLang === "AR" ? "rtl" : "ltr";
   }, [changeLanguage]);
 
-  useEffect(() => {
-    ChangeLanguage();
-  }, [changeLanguage]);
+  useEffect(() => ChangeLanguage(), [changeLanguage]);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -114,11 +105,8 @@ const Dashboard = ({
         setShowLangDropdown(false);
       }
     };
-
     document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   useEffect(() => {
@@ -132,7 +120,6 @@ const Dashboard = ({
         setFullScreen((prev) => !prev);
       }
     };
-
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [setChangeTheme, setFullScreen]);
@@ -140,29 +127,91 @@ const Dashboard = ({
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (["INPUT", "TEXTAREA"].includes(e.target.tagName)) return;
-
       if (["w", "a", "s", "d"].includes(e.key.toLowerCase())) {
         e.preventDefault();
-
         setSelectedIndex((prev) => {
           if (components.length === 0) return null;
           let newIndex = prev ?? 0;
-
           if (e.key.toLowerCase() === "w" || e.key.toLowerCase() === "a") {
             newIndex = prev > 0 ? prev - 1 : components.length - 1;
           }
           if (e.key.toLowerCase() === "s" || e.key.toLowerCase() === "d") {
             newIndex = prev < components.length - 1 ? prev + 1 : 0;
           }
-
           return newIndex;
         });
       }
     };
-
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [components.length, setSelectedIndex]);
+
+  const handlePageSwitch = (index) => {
+    const updatedPages = [...pages];
+    updatedPages[activePage].components = components;
+    setPages(updatedPages);
+
+    setActivePage(index);
+    setComponents(updatedPages[index].components);
+    setSelectedIndex(null);
+  };
+
+  const addNewPage = () => {
+    const updatedPages = [...pages];
+    updatedPages[activePage].components = components;
+
+    const newPageIndex = updatedPages.length + 1;
+    const newPages = [
+      ...updatedPages,
+      { name: `Page ${newPageIndex}`, components: [] },
+    ];
+    setPages(newPages);
+
+    setActivePage(newPages.length - 1);
+    setComponents([]);
+    setSelectedIndex(null);
+  };
+
+  const removePageHandler = () => {
+    if (pages.length <= 1) return;
+    const updatedPages = [...pages];
+    updatedPages.splice(activePage, 1);
+
+    const newActive = activePage === 0 ? 0 : activePage - 1;
+
+    setPages(updatedPages);
+    setActivePage(newActive);
+    setComponents(updatedPages[newActive].components);
+    setSelectedIndex(null);
+  };
+
+  const renamePage = (index, newName) => {
+    setPages((prev) => {
+      const updated = [...prev];
+      updated[index].name = newName;
+      localStorage.setItem("dashboard_pages", JSON.stringify(updated));
+      return updated;
+    });
+  };
+
+  useEffect(() => {
+    const pagesCopy = [...pages];
+    pagesCopy[activePage] = {
+      ...pagesCopy[activePage],
+      components: components,
+    };
+    localStorage.setItem("dashboard_pages", JSON.stringify(pagesCopy));
+  }, [pages, components, activePage]);
+
+  useEffect(() => {
+    localStorage.setItem("dashboard_activePage", activePage);
+  }, [activePage]);
+
+  useEffect(() => {
+    if (pages[activePage]?.components) {
+      setComponents(pages[activePage].components);
+    }
+  }, [pages, activePage, setComponents]);
 
   return (
     <div
@@ -177,127 +226,57 @@ const Dashboard = ({
           : ""
       }`}
     >
-      <div
-        className={`flex items-center h-[8%] justify-between ${
-          changeTheme ? "text-lightTeal" : "text-mainColor"
-        } font-bold`}
-      >
-        <div className="w-[30%] flex items-center gap-1 text-2xl">
-          <MdDashboard size={40} />
-          {set_MainName ?? t("Dashboard.Dashboard")}
-        </div>
+      <DashboardHeader
+        changeTheme={changeTheme}
+        setChangeTheme={setChangeTheme}
+        fullScreen={fullScreen}
+        setFullScreen={setFullScreen}
+        lang={lang}
+        showLangDropdown={showLangDropdown}
+        setShowLangDropdown={setShowLangDropdown}
+        ChangeLanguage={ChangeLanguage}
+        dropdownRef={dropdownRef}
+        pages={pages}
+        activePage={activePage}
+        removePage={removePageHandler}
+        set_MainName={set_MainName}
+        t={t}
+        componentsLength={components.length}
+      />
 
-        <div className="flex w-[50%] justify-end items-center gap-5 text-xl">
-          <div ref={dropdownRef} className="relative w-[12%]">
-            <div
-              className={`flex items-center justify-center gap-2 w-full p-1 border-2 rounded-xl cursor-pointer ${
-                changeTheme
-                  ? "border-lightTeal text-lightTeal"
-                  : "border-mainColor text-mainColor"
-              }`}
-              onClick={() => setShowLangDropdown(!showLangDropdown)}
-            >
-              <GrLanguage size={25} />
-              <div>{lang || "EN"}</div>
-            </div>
-
-            {showLangDropdown && (
-              <div
-                className={`absolute mt-1 w-full rounded-lg shadow-lg z-50 ${
-                  changeTheme
-                    ? "bg-gray-700 text-lightTeal"
-                    : "bg-white text-mainColor"
-                }`}
-              >
-                {LanguagesOptions.map((item, index) => (
-                  <div
-                    key={index}
-                    onClick={() => {
-                      ChangeLanguage({ target: { value: item.title } });
-                      setShowLangDropdown(false);
-                    }}
-                    className="px-3 py-2 cursor-pointer justify-center hover:bg-opacity-50
-                     hover:bg-gray-300 flex items-center gap-3"
-                  >
-                    <div className="text-xl w-8 h-4">
-                      <item.flag className="w-10 h-6 rounded" />
-                    </div>
-                    <div>{item.title}</div>
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
-          <Tooltip title="Ctrl + C" arrow placement="bottom">
-            <div
-              className="cursor-pointer"
-              onClick={() => setChangeTheme(!changeTheme)}
-            >
-              {changeTheme ? (
-                <MdLightMode size={30} />
-              ) : (
-                <IoIosMoon size={30} />
-              )}
-            </div>
-          </Tooltip>
-          <Tooltip title="Ctrl + F" arrow placement="bottom">
-            <div
-              onClick={() => setFullScreen(!fullScreen)}
-              className="flex items-center gap-2 cursor-pointer"
-            >
-              {!fullScreen ? (
-                <>
-                  <MdOutlineScreenshotMonitor size={30} />
-                  <div>{t("Dashboard.FullScreen")}</div>
-                </>
-              ) : (
-                <>
-                  <MdDashboardCustomize size={30} />
-                  <div> {t("Dashboard.EditMode")}</div>
-                </>
-              )}
-            </div>
-          </Tooltip>
-          {components.length === 0 ? (
-            <></>
-          ) : (
-            <div
-              title="Components number"
-              className={`min-w-[20%] pl-2 pr-2 w-fit text-center ${
-                changeTheme ? "bg-lightTeal" : "bg-mainColor"
-              } rounded-lg text-white`}
-            >
-              {components.length}
-            </div>
-          )}
-        </div>
-      </div>
+      <PagesBar
+        changeTheme={changeTheme}
+        pages={pages}
+        handlePageSwitch={handlePageSwitch}
+        activePage={activePage}
+        addNewPage={addNewPage}
+        renamePage={renamePage}
+      />
 
       {components.length === 0 ? (
-        !fullScreen ? (
+        !fullScreen && (
           <div
-            className={` h-[92%] rounded-lg border-2 border-dashed ${
+            className={`h-[92%] rounded-lg border-2 border-dashed ${
               changeTheme
                 ? "border-lightTeal text-lightTeal bg-gray-500"
                 : "border-mainColor text-gray-700 bg-white"
-            } 
-              flex flex-col items-center justify-center gap-4`}
+            } flex flex-col items-center justify-center gap-4`}
           >
             <div className="flex flex-col items-center justify-center">
               <FaArrowDown size={35} className="animate-bounce" />
               <FiInbox size={40} />
             </div>
-            <div className={`text-xl font-bold `}>{t("Dashboard.Drop")}</div>
+            <div className="text-xl font-bold">{t("Dashboard.Drop")}</div>
           </div>
-        ) : null
+        )
       ) : (
         <div
           className={`flex h-[92%] flex-wrap gap-3 justify-center items-start w-full p-2 overflow-auto
-           scrollbar-thin ${
-             changeTheme
-               ? "scrollbar-thumb-lightTeal"
-               : "scrollbar-thumb-lightIndigo"
-           } scrollbar-track-transparent`}
+          scrollbar-thin ${
+            changeTheme
+              ? "scrollbar-thumb-lightTeal"
+              : "scrollbar-thumb-lightIndigo"
+          } scrollbar-track-transparent`}
         >
           {components.map((comp, idx) => (
             <DraggableComponent
