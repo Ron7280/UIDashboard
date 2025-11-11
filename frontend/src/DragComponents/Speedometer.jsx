@@ -37,7 +37,7 @@ const Speedometer = ({ props, handlePropChange }) => {
   return (
     <div
       className={`w-full h-full flex flex-col justify-center items-center 
-      gap-4 rounded-xl p-1 bg-white shadow-lg ${
+      gap-4 rounded-xl p-1 bg-white shadow-md ${
         changeTheme ? "shadow-mainColor2 " : "shadow-mainColor"
       }`}
     >

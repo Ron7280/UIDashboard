@@ -94,6 +94,119 @@ const Sort = ({ props }) => {
     stopSorting();
   };
 
+  const heapSort = async () => {
+    let arr = [...array];
+    setIsSorting(true);
+    stopFlag.current = false;
+    startTimer();
+
+    const heapify = async (n, i) => {
+      let largest = i;
+      let left = 2 * i + 1;
+      let right = 2 * i + 2;
+
+      if (left < n && arr[left] > arr[largest]) largest = left;
+      if (right < n && arr[right] > arr[largest]) largest = right;
+
+      if (largest !== i) {
+        [arr[i], arr[largest]] = [arr[largest], arr[i]];
+        setArray([...arr]);
+        await sleep(50);
+        await heapify(n, largest);
+      }
+    };
+
+    for (let i = Math.floor(arr.length / 2) - 1; i >= 0; i--) {
+      await heapify(arr.length, i);
+    }
+
+    for (let i = arr.length - 1; i > 0; i--) {
+      if (stopFlag.current) return stopSorting();
+      [arr[0], arr[i]] = [arr[i], arr[0]];
+      setArray([...arr]);
+      await sleep(50);
+      await heapify(i, 0);
+    }
+
+    setArray(
+      [...arr]
+        .sort((a, b) => (sortOrder === "asc" ? a - b : b - a))
+        .map(Math.floor)
+    );
+    stopSorting();
+  };
+
+  const radixSort = async () => {
+    let arr = [...array];
+    setIsSorting(true);
+    stopFlag.current = false;
+    startTimer();
+
+    const getMax = (a) => Math.max(...a);
+
+    const countingSort = async (a, exp) => {
+      const n = a.length;
+      const output = new Array(n).fill(0);
+      const count = new Array(10).fill(0);
+
+      for (let i = 0; i < n; i++) count[Math.floor(a[i] / exp) % 10]++;
+
+      for (let i = 1; i < 10; i++) count[i] += count[i - 1];
+
+      for (let i = n - 1; i >= 0; i--) {
+        const idx = Math.floor(a[i] / exp) % 10;
+        output[count[idx] - 1] = a[i];
+        count[idx]--;
+      }
+
+      for (let i = 0; i < n; i++) {
+        a[i] = output[i];
+        setArray([...a]);
+        await sleep(30);
+      }
+    };
+
+    const maxVal = getMax(arr);
+    for (let exp = 1; Math.floor(maxVal / exp) > 0; exp *= 10) {
+      if (stopFlag.current) return stopSorting();
+      await countingSort(arr, exp);
+    }
+
+    setArray(
+      [...arr]
+        .sort((a, b) => (sortOrder === "asc" ? a - b : b - a))
+        .map(Math.floor)
+    );
+    stopSorting();
+  };
+
+  const gnomeSort = async () => {
+    let arr = [...array];
+    setIsSorting(true);
+    stopFlag.current = false;
+    startTimer();
+
+    let i = 0;
+    while (i < arr.length) {
+      if (stopFlag.current) return stopSorting();
+      if (i === 0 || arr[i] >= arr[i - 1]) {
+        i++;
+      } else {
+        [arr[i], arr[i - 1]] = [arr[i - 1], arr[i]];
+        i--;
+        setArray([...arr]);
+        await sleep(50);
+      }
+    }
+
+    setArray(
+      [...arr]
+        .sort((a, b) => (sortOrder === "asc" ? a - b : b - a))
+        .map(Math.floor)
+    );
+    stopSorting();
+  };
+
   const selectionSort = async () => {
     let arr = [...array];
     setIsSorting(true);
@@ -185,6 +298,38 @@ const Sort = ({ props }) => {
     stopSorting();
   };
 
+  const shellSort = async () => {
+    let arr = [...array];
+    setIsSorting(true);
+    stopFlag.current = false;
+    startTimer();
+
+    let n = arr.length;
+    for (let gap = Math.floor(n / 2); gap > 0; gap = Math.floor(gap / 2)) {
+      for (let i = gap; i < n; i++) {
+        let temp = arr[i];
+        let j = i;
+        while (j >= gap && arr[j - gap] > temp) {
+          if (stopFlag.current) return stopSorting();
+          arr[j] = arr[j - gap];
+          j -= gap;
+          setArray([...arr]);
+          await sleep(50);
+        }
+        arr[j] = temp;
+        setArray([...arr]);
+        await sleep(50);
+      }
+    }
+
+    setArray(
+      [...arr]
+        .sort((a, b) => (sortOrder === "asc" ? a - b : b - a))
+        .map(Math.floor)
+    );
+    stopSorting();
+  };
+
   const handleSort = async () => {
     if (!algorithm) {
       notifyW(t("DragCompo.Sort.NotifyW1"));
@@ -194,6 +339,10 @@ const Sort = ({ props }) => {
     else if (algorithm === "selection") await selectionSort();
     else if (algorithm === "insertion") await insertionSort();
     else if (algorithm === "quick") await quickSort();
+    else if (algorithm === "shell") await shellSort();
+    else if (algorithm === "gnome") await gnomeSort();
+    else if (algorithm === "heap") await heapSort();
+    else if (algorithm === "radix") await radixSort();
   };
 
   const buttons = [
@@ -233,7 +382,7 @@ const Sort = ({ props }) => {
       title={props.title}
       className={`p-2 gap-3 w-full h-full flex flex-col rounded-lg ${
         changeTheme ? "text-white" : ""
-      }`}
+      } shadow-md ${changeTheme ? "shadow-lightTeal" : "shadow-mainColor"}`}
     >
       <div className="flex justify-between items-center gap-10">
         <div className="text-2xl  font-semibold text-center">
@@ -280,6 +429,10 @@ const Sort = ({ props }) => {
               {t("DragCompo.Sort.InsertionSort")}
             </option>
             <option value="quick"> {t("DragCompo.Sort.QuickSort")}</option>
+            <option value="shell">{t("DragCompo.Sort.ShellSort")}</option>
+            <option value="gnome">{t("DragCompo.Sort.GnomeSort")}</option>
+            <option value="heap">{t("DragCompo.Sort.HeapSort")}</option>
+            <option value="radix">{t("DragCompo.Sort.RadixSort")}</option>
           </select>
         </div>
         <div className="flex gap-3 w-[50%] justify-center items-center ">

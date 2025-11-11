@@ -50,7 +50,7 @@ const AIComponent = ({ props, response, onChangePrompt }) => {
   return (
     <div
       title={props.title}
-      className={`flex flex-col gap-2 p-3 w-full h-full bg-white shadow-lg ${
+      className={`flex flex-col gap-2 p-3 w-full h-full bg-white shadow-md ${
         changeTheme ? "shadow-lightTeal" : "shadow-mainColor"
       } rounded-xl`}
     >
