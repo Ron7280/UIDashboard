@@ -42,7 +42,6 @@ const Notepad_Prop = ({ selectedComponent, handlePropChange }) => {
         defaultValue={selectedComponent.props?.title}
       />
 
-      {/* Type Selection */}
       <label
         className={`${
           changeTheme ? "text-white" : ""
@@ -60,7 +59,6 @@ const Notepad_Prop = ({ selectedComponent, handlePropChange }) => {
         <option value="todo">{t("EditProps.Notepad_Prop.List")}</option>
       </select>
 
-      {/* Title Input */}
       <label
         className={`${
           changeTheme ? "text-white" : ""
@@ -76,7 +74,6 @@ const Notepad_Prop = ({ selectedComponent, handlePropChange }) => {
         placeholder={t("EditProps.Notepad_Prop.Placeholder")}
       />
 
-      {/* Download Button */}
       <button
         onClick={handleDownloadTxt}
         className={`flex items-center justify-center gap-2 py-2 rounded-md font-semibold shadow-md transition-all ${

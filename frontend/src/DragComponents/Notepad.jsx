@@ -18,7 +18,6 @@ const Notepad = ({
   const [save_ToNotepad] = useContext(Save_To_Notepad_context);
   const { t } = useTranslation();
 
-  // ✅ Only update the text once when matching saved data exists
   useEffect(() => {
     if (save_ToNotepad.length > 0) {
       const savedEntries = save_ToNotepad.filter(
