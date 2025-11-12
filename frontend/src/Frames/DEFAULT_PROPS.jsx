@@ -265,12 +265,6 @@ const DEFAULT_PROPS = {
     height: 620,
     icon: RiBarChartGroupedLine,
   },
-  Fibonacci: {
-    title: "",
-    width: 550,
-    height: 450,
-    icon: RiBarChartGroupedLine,
-  },
 };
 
 export default DEFAULT_PROPS;
