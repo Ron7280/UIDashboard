@@ -239,6 +239,7 @@ const RenderComponent = ({ comp, handlePropChange, DEFAULT_PROPS }) => {
           onChange={(updates) =>
             handlePropChange(Object.keys(updates)[0], Object.values(updates)[0])
           }
+          props={props}
         />
       );
 

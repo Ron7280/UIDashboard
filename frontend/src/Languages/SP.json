@@ -209,7 +209,8 @@
         "Text":"Texto",
         "List":"Lista de Tareas",
         "Title":"Título",
-        "Placeholder":"Ingresa título de nota . . ."
+        "Placeholder":"Ingresa título de nota . . .",
+        "Download": "Descargar"
     },
     "ProgressBar_Prop":{
         "Value":"Valor"

@@ -34,6 +34,7 @@ const DEFAULT_PROPS = {
   AI: {
     response: "",
     title: "",
+    InteractWith: "",
     width: 400,
     height: 200,
     icon: FaRobot,
@@ -261,6 +262,7 @@ const DEFAULT_PROPS = {
   },
   Sort: {
     title: "",
+    InteractWith: "",
     width: 1000,
     height: 620,
     icon: RiBarChartGroupedLine,

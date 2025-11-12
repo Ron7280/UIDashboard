@@ -1,8 +1,13 @@
 import React, { useContext, useEffect, useState } from "react";
 import { LuBrainCircuit } from "react-icons/lu";
-import { Ask_AI_context, Change_Theme_context } from "../Contexts";
+import {
+  Ask_AI_context,
+  Change_Theme_context,
+  Save_To_Notepad_context,
+} from "../Contexts";
 import Loader from "./Loader";
 import { useTranslation } from "react-i18next";
+import { IoIosSave } from "react-icons/io";
 import { API } from "../Api_Link";
 
 const AIComponent = ({ props, response, onChangePrompt }) => {
@@ -11,6 +16,9 @@ const AIComponent = ({ props, response, onChangePrompt }) => {
   const [answer, setAnswer] = useState(response);
   const [ask_AI, setAsk_AI] = useContext(Ask_AI_context);
   const [changeTheme, setChangeTheme] = useContext(Change_Theme_context);
+  const [save_ToNotepad, setSave_ToNotepad] = useContext(
+    Save_To_Notepad_context
+  );
   const [btnClicked, setBtnClicked] = useState(false);
   const { t } = useTranslation();
 
@@ -65,6 +73,23 @@ const AIComponent = ({ props, response, onChangePrompt }) => {
           onChange={(e) => setInput(e.target.value)}
           placeholder={t("DragCompo.AI.Placeholder")}
         />
+        {answer && (
+          <button
+            onClick={() =>
+              setSave_ToNotepad((prev) => [
+                ...prev,
+                {
+                  textKey: input,
+                  value: answer,
+                  NoteTitle: props.InteractWith,
+                },
+              ])
+            }
+            className="text-green-500"
+          >
+            <IoIosSave size={30} />
+          </button>
+        )}
         <button
           onClick={askAI}
           disabled={loading}

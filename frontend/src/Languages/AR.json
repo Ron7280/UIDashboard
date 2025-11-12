@@ -209,7 +209,8 @@
         "Text":"نص",
         "List":"قائمة مهام",
         "Title":"عنوان",
-        "Placeholder":"ادخل عنوان الملاحظة"
+        "Placeholder":"ادخل عنوان الملاحظة",
+        "Download":"تنزيل"
     },
     "ProgressBar_Prop":{
         "Value":"القيمة"

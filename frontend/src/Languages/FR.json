@@ -209,7 +209,8 @@
         "Text":"Texte",
         "List":"Liste de Tâches",
         "Title":"Titre",
-        "Placeholder":"Entrez le titre du bloc-notes . . ."
+        "Placeholder":"Entrez le titre du bloc-notes . . .",
+        "Download": "Télécharger"
     },
     "ProgressBar_Prop":{
         "Value":"Valeur"

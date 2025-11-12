@@ -209,7 +209,8 @@
         "Text":"Text",
         "List":"To-Do List",
         "Title":"Title",
-        "Placeholder":"Enter notepad title . . ."
+        "Placeholder":"Enter notepad title . . .",
+        "Download":"Download"
     },
     "ProgressBar_Prop":{
         "Value":"Value"

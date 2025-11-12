@@ -2,12 +2,37 @@ import React, { useContext } from "react";
 import TitleSetter from "../Components/TitleSetter";
 import { BiSolidNotepad } from "react-icons/bi";
 import { MdOutlineEditNote } from "react-icons/md";
+import { IoMdDownload } from "react-icons/io";
 import { Change_Theme_context } from "../Contexts";
 import { useTranslation } from "react-i18next";
 
 const Notepad_Prop = ({ selectedComponent, handlePropChange }) => {
   const [changeTheme, setChangeTheme] = useContext(Change_Theme_context);
   const { t } = useTranslation();
+
+  const handleDownloadTxt = () => {
+    const { type, content, todos, title } = selectedComponent.props;
+
+    let fileContent = "";
+
+    if (type === "todo") {
+      fileContent = todos
+        ?.map(
+          (todo, index) =>
+            `${index + 1}. ${todo.text} [${todo.done ? "✓" : "✗"}]`
+        )
+        .join("\n");
+    } else {
+      fileContent = content || "";
+    }
+
+    const blob = new Blob([fileContent], { type: "text/plain;charset=utf-8" });
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = `${title || "Notepad"}.txt`;
+    link.click();
+    URL.revokeObjectURL(link.href);
+  };
 
   return (
     <div className="flex flex-col gap-4">
@@ -16,6 +41,8 @@ const Notepad_Prop = ({ selectedComponent, handlePropChange }) => {
         handlePropChange={handlePropChange}
         defaultValue={selectedComponent.props?.title}
       />
+
+      {/* Type Selection */}
       <label
         className={`${
           changeTheme ? "text-white" : ""
@@ -33,6 +60,7 @@ const Notepad_Prop = ({ selectedComponent, handlePropChange }) => {
         <option value="todo">{t("EditProps.Notepad_Prop.List")}</option>
       </select>
 
+      {/* Title Input */}
       <label
         className={`${
           changeTheme ? "text-white" : ""
@@ -47,6 +75,17 @@ const Notepad_Prop = ({ selectedComponent, handlePropChange }) => {
         className="border rounded-md px-3 py-2 w-full outline-none"
         placeholder={t("EditProps.Notepad_Prop.Placeholder")}
       />
+
+      {/* Download Button */}
+      <button
+        onClick={handleDownloadTxt}
+        className={`flex items-center justify-center gap-2 py-2 rounded-md font-semibold shadow-md transition-all ${
+          changeTheme ? "bg-lightTeal text-black " : "bg-mainColor text-white "
+        }`}
+      >
+        <IoMdDownload size={22} />
+        {t("EditProps.Notepad_Prop.Download")}
+      </button>
     </div>
   );
 };

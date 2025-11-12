@@ -1,14 +1,18 @@
 import React, { useState, useEffect, useRef, useContext } from "react";
 import Loader from "./Loader";
-import { Change_Theme_context } from "../Contexts";
+import { Change_Theme_context, Save_To_Notepad_context } from "../Contexts";
 import { GiNetworkBars } from "react-icons/gi";
 import { SiThealgorithms } from "react-icons/si";
 import Alert from "../Components/Alert";
 import { useTranslation } from "react-i18next";
 import { GiSandsOfTime } from "react-icons/gi";
+import { IoIosSave } from "react-icons/io";
 
 const Sort = ({ props }) => {
   const [changeTheme, setChangeTheme] = useContext(Change_Theme_context);
+  const [save_ToNotepad, setSave_ToNotepad] = useContext(
+    Save_To_Notepad_context
+  );
   const [array, setArray] = useState([]);
   const [originalArray, setOriginalArray] = useState([]);
   const [algorithm, setAlgorithm] = useState("");
@@ -388,16 +392,38 @@ const Sort = ({ props }) => {
         <div className="text-2xl  font-semibold text-center">
           {t("DragCompo.Sort.Title")}
         </div>
+
         {timeTaken > 0 ? (
-          <div className="flex items-center gap-2 w-[20%] text-center text-xl font-medium">
-            <GiSandsOfTime
-              size={30}
-              className={` ${
-                changeTheme ? "text-lightTeal" : "text-mainColor"
-              } ${isSorting ? "animate-spin" : ""}`}
-            />
-            <div className=" w-full items-end flex">
-              {t("DragCompo.Sort.Time")}: {timeTaken} {t("DragCompo.Sort.S")}
+          <div className="flex items-center gap-2 w-[40%] text-center justify-end font-medium">
+            {props.InteractWith && !isSorting ? (
+              <button
+                onClick={() =>
+                  setSave_ToNotepad((prev) => [
+                    ...prev,
+                    {
+                      textKey: algorithm,
+                      value: timeTaken,
+                      NoteTitle: props.InteractWith,
+                    },
+                  ])
+                }
+                className="bg-green-500 p-1 w-[70%] justify-center flex items-center gap-2 text-white font-semibold shadow-black shadow-md text-md rounded-lg"
+              >
+                <IoIosSave size={20} /> Save to Notepad
+              </button>
+            ) : (
+              ""
+            )}
+            <div className="flex items-center gap-3 justify-end w-[50%]">
+              <GiSandsOfTime
+                size={30}
+                className={` ${
+                  changeTheme ? "text-lightTeal" : "text-mainColor"
+                } ${isSorting ? "animate-spin" : ""}`}
+              />
+              <div className="text-xl w-full items-end flex">
+                {t("DragCompo.Sort.Time")}: {timeTaken} {t("DragCompo.Sort.S")}
+              </div>
             </div>
           </div>
         ) : (
@@ -479,6 +505,7 @@ const Sort = ({ props }) => {
           </button>
         ))}
       </div>
+
       <div className="flex w-full h-full justify-center items-end gap-1 p-4 rounded-lg ">
         {array.map((value, idx) => (
           <div

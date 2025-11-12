@@ -11,6 +11,7 @@ import {
   Change_Theme_context,
   Chart_Trimm_context,
   Check_Box_context,
+  Save_To_Notepad_context,
   Set_MainName_context,
   Stop_Timer_context,
   Toggle_context,
@@ -46,6 +47,7 @@ function App() {
   const [videoProgress, setVideoProgress] = useState();
   const [stopTimer, setStopTimer] = useState();
   const [set_MainName, setSet_MainName] = useState();
+  const [save_ToNotepad, setSave_ToNotepad] = useState([]);
   const [changeLanguage, setChangeLanguage] = useState({
     status: false,
     lang1: "",
@@ -82,9 +84,13 @@ function App() {
                             <Set_MainName_context.Provider
                               value={[set_MainName, setSet_MainName]}
                             >
-                              <Routes>
-                                <Route path="/" element={<MainDashboard />} />
-                              </Routes>
+                              <Save_To_Notepad_context.Provider
+                                value={[save_ToNotepad, setSave_ToNotepad]}
+                              >
+                                <Routes>
+                                  <Route path="/" element={<MainDashboard />} />
+                                </Routes>
+                              </Save_To_Notepad_context.Provider>
                             </Set_MainName_context.Provider>
                           </Stop_Timer_context.Provider>
                         </Change_Language_context.Provider>
