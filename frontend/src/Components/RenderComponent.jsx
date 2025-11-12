@@ -28,6 +28,7 @@ import API from "../DragComponents/API";
 import Speedometer from "../DragComponents/Speedometer";
 import Linguistics from "../DragComponents/Linguistics";
 import Sort from "../DragComponents/Sort";
+import FibonacciChart from "../DragComponents/FibonacciChart";
 
 const RenderComponent = ({ comp, handlePropChange, DEFAULT_PROPS }) => {
   if (!comp) return null;
@@ -256,8 +257,12 @@ const RenderComponent = ({ comp, handlePropChange, DEFAULT_PROPS }) => {
 
     case "Linguistics":
       return <Linguistics props={props} />;
+
     case "Sort":
       return <Sort props={props} />;
+
+    case "Fibonacci":
+      return <FibonacciChart props={props} />;
 
     default:
       return (

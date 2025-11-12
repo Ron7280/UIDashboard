@@ -136,6 +136,7 @@ const Button_Prop = ({ components, selectedComponent, handlePropChange }) => {
         {t("EditProps.Button_Props.AlertType")}
       </label>
       <select
+        className="w-full border rounded-md px-3 py-2 outline-none"
         onChange={(e) => {
           handlePropChange("AlertType", e.target.value || "info");
         }}

@@ -9,8 +9,10 @@ const Table = ({ columns = [], data = [], width, height }) => {
       style={{ width, height, overflow: "auto" }}
     >
       <div
-        className={`overflow-x-auto border rounded-lg bg-white  shadow-md  ${
-          changeTheme ? "shadow-lightTeal" : "shadow-mainColor"
+        className={`overflow-x-auto scrollbar-thin  border rounded-lg bg-white  shadow-md  ${
+          changeTheme
+            ? "shadow-lightTeal scrollbar-thumb-mainColor2"
+            : "shadow-mainColor scrollbar-thumb-mainColor"
         }`}
       >
         <table className="w-full text-left border-collapse">

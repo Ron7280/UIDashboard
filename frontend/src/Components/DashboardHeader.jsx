@@ -95,7 +95,7 @@ const DashboardHeader = ({
           </Tooltip>
         )}
 
-        <Tooltip title="Ctrl + C" arrow placement="bottom">
+        <Tooltip title="Ctrl + D" arrow placement="bottom">
           <div
             className="cursor-pointer"
             onClick={() => setChangeTheme(!changeTheme)}

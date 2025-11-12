@@ -46,7 +46,7 @@ const DEFAULT_PROPS = {
     height: 40,
     icon: GiClick,
     actionType: "alert",
-    AlertType: "Info",
+    AlertType: "info",
     actionValue: "Button clicked!",
     InteractWith: "",
   },
@@ -262,7 +262,13 @@ const DEFAULT_PROPS = {
   Sort: {
     title: "",
     width: 1000,
-    height: 600,
+    height: 620,
+    icon: RiBarChartGroupedLine,
+  },
+  Fibonacci: {
+    title: "",
+    width: 550,
+    height: 450,
     icon: RiBarChartGroupedLine,
   },
 };

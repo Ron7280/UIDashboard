@@ -111,7 +111,7 @@ const Dashboard = ({
 
   useEffect(() => {
     const handleKeyDown = (e) => {
-      if (e.ctrlKey && e.key.toLowerCase() === "c") {
+      if (e.ctrlKey && e.key.toLowerCase() === "d") {
         e.preventDefault();
         setChangeTheme((prev) => !prev);
       }

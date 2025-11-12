@@ -28,9 +28,11 @@ const PagesBar = ({
   return (
     <div
       className={`flex h-full max-h-[4%] ${
-        changeTheme ? "bg-gray-500" : "bg-indigo-50"
+        changeTheme
+          ? "bg-gray-500 scrollbar-thumb-lightTeal"
+          : "bg-indigo-50 scrollbar-thumb-lightIndigo"
       }  rounded-lg items-center mb-1 overflow-x-auto scrollbar-thin
-         scrollbar-thumb-lightIndigo scrollbar-track-transparent`}
+          scrollbar-track-transparent`}
     >
       {pages.map((page, index) => (
         <div
@@ -39,10 +41,8 @@ const PagesBar = ({
              cursor-pointer font-semibold flex items-center gap-1 ${
                activePage === index
                  ? `${
-                     changeTheme
-                       ? "bg-mainColor2 text-white"
-                       : "bg-lightIndigo text-white"
-                   } shadow-gray-900 shadow-inner`
+                     changeTheme ? "bg-mainColor2 " : "bg-lightIndigo "
+                   } text-white shadow-gray-900 shadow-inner`
                  : `${changeTheme ? "text-white" : "text-black"}`
              } ${index === 0 ? "rounded-ss-lg rounded-es-lg" : ""}`}
         >

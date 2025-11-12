@@ -404,12 +404,14 @@ const Sort = ({ props }) => {
           <></>
         )}
       </div>
-      <div className="flex w-full gap-3">
+      <div className="flex flex-col w-full gap-3">
         <div className="flex flex-col w-[50%] gap-1 justify-start items-center  ">
           <div className="flex w-full justify-start items-center gap-2 font-semibold text-lg">
             <SiThealgorithms size={25} />
             {t("DragCompo.Sort.SelectAlgo")}
           </div>
+        </div>
+        <div className="flex gap-3 w-full justify-center items-center ">
           <select
             disabled={isSorting}
             value={algorithm}
@@ -434,8 +436,6 @@ const Sort = ({ props }) => {
             <option value="heap">{t("DragCompo.Sort.HeapSort")}</option>
             <option value="radix">{t("DragCompo.Sort.RadixSort")}</option>
           </select>
-        </div>
-        <div className="flex gap-3 w-[50%] justify-center items-center ">
           <div className="flex justify-center items-center gap-2 font-semibold text-lg">
             <GiNetworkBars size={25} />
             {t("DragCompo.Sort.Density")}
@@ -447,9 +447,10 @@ const Sort = ({ props }) => {
             max={350}
             value={density}
             onChange={(e) => setDensity(Number(e.target.value))}
-            className={`border p-1 w-[50%] rounded-lg outline-none ${
+            className={`border p-1 w-[50%] text-center rounded-lg outline-none ${
               isSorting ? "cursor-not-allowed" : ""
             } text-black font-semibold`}
+            placeholder="Density"
           />
           <select
             disabled={isSorting}
