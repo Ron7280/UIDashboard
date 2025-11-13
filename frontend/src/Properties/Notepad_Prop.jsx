@@ -42,8 +42,8 @@ const Notepad_Prop = ({ selectedComponent, handlePropChange }) => {
                 entry.value.sentence
               }`;
             }
-            // fallback for string or other types
-            return entry.value;
+
+            return `${entry.textKey} : ${entry.value}`;
           })
           .join("\n\n");
       } else {
