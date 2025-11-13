@@ -37,7 +37,7 @@ const Text_Prop = ({ selectedComponent, handlePropChange }) => {
       <input
         value={selectedComponent.props?.text || ""}
         onChange={(e) => handlePropChange("text", e.target.value)}
-        className="w-full border rounded-md px-3 py-2 outline-none"
+        className="w-full border rounded-md px-3 py-2 font-semibold outline-none"
       />
 
       <label
@@ -69,7 +69,7 @@ const Text_Prop = ({ selectedComponent, handlePropChange }) => {
           handlePropChange("setAs", e.target.value);
           setTextAs(e.target.value);
         }}
-        className="w-full border rounded-md px-3 py-2 outline-none"
+        className="w-full border rounded-md px-3 py-2 font-semibold outline-none"
       >
         <option value="" disabled>
           {t("EditProps.Text_Prop.Select")}
@@ -80,9 +80,7 @@ const Text_Prop = ({ selectedComponent, handlePropChange }) => {
       <button
         type="button"
         className={`mt-2 px-4 py-2 ${
-          changeTheme
-            ? "bg-mainColor2 hover:bg-SecondryTeal"
-            : "bg-lightIndigo hover:bg-mainColor"
+          changeTheme ? "bg-mainColor2" : "bg-mainColor"
         } text-white rounded-lg font-bold`}
         onClick={() => UseText({ As: selectedComponent.props?.setAs })}
       >

@@ -1,6 +1,7 @@
 import React from "react";
 import TitleSetter from "../Components/TitleSetter";
 import { useTranslation } from "react-i18next";
+import { BsBodyText } from "react-icons/bs";
 
 const Card_Prop = ({ selectedComponent, handlePropChange }) => {
   const { t } = useTranslation();
@@ -11,21 +12,14 @@ const Card_Prop = ({ selectedComponent, handlePropChange }) => {
         handlePropChange={handlePropChange}
         defaultValue={selectedComponent.props?.title}
       />
-      <label className="text-lg font-bold">
-        {t("EditProps.Card_Props.Title")}
-      </label>
-      <input
-        value={selectedComponent.props?.title || ""}
-        onChange={(e) => handlePropChange("title", e.target.value)}
-        className="w-full border rounded-md px-3 py-2 outline-none"
-      />
-      <label className="text-lg font-bold">
-        {t("EditProps.Card_Props.Content")}
-      </label>
+
+      <div className=" flex  items-center gap-2 text-lg font-bold">
+        <BsBodyText size={25} /> {t("EditProps.Card_Props.Content")}
+      </div>
       <textarea
         value={selectedComponent.props?.content || ""}
         onChange={(e) => handlePropChange("content", e.target.value)}
-        className="w-full border rounded-md px-3 py-2 outline-none"
+        className="w-full border rounded-md px-3 font-semibold py-2 outline-none"
       />
     </div>
   );

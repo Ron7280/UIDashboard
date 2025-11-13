@@ -14,14 +14,14 @@ const CountdownTimer_Prop = ({ selectedComponent, handlePropChange }) => {
         handlePropChange={handlePropChange}
         defaultValue={selectedComponent.props?.title}
       />
-      <label
+      <div
         className={`text-lg flex items-center gap-2 font-bold ${
           changeTheme ? "text-white" : ""
         }`}
       >
         <PiTimerFill size={25} />
         {t("EditProps.CountdownTimer_Prop.Start")}
-      </label>
+      </div>
       <div className="flex gap-2 items-center">
         {["hours", "minutes", "seconds"].map((unit) => (
           <input
@@ -40,7 +40,7 @@ const CountdownTimer_Prop = ({ selectedComponent, handlePropChange }) => {
                 [unit]: Number(e.target.value),
               })
             }
-            className="w-16 border text-gray-700 font-bold rounded-md px-2 py-1 outline-none"
+            className="w-16 border text-gray-700 font-semibold rounded-md px-2 py-1 outline-none"
           />
         ))}
 
@@ -52,7 +52,7 @@ const CountdownTimer_Prop = ({ selectedComponent, handlePropChange }) => {
             handlePropChange("startTime", newStart);
             handlePropChange("resetSignal", {});
           }}
-          className="bg-green-500 text-white px-3 py-1 font-bold rounded-lg hover:bg-green-600 transition"
+          className="bg-green-500 shadow-black shadow-md text-white px-3 py-1 font-semibold rounded-lg"
         >
           {t("EditProps.CountdownTimer_Prop.Set")}
         </button>
@@ -60,12 +60,8 @@ const CountdownTimer_Prop = ({ selectedComponent, handlePropChange }) => {
 
       <button
         onClick={() => handlePropChange("resetSignal", {})}
-        className={`mt-2 transition text-white px-3 py-1 rounded-lg font-bold
-           ${
-             changeTheme
-               ? "bg-mainColor2 hover:bg-SecondryTeal "
-               : "bg-lightIndigo hover:bg-mainColor "
-           } `}
+        className={`mt-2 transition text-white px-3 py-1 rounded-lg font-semibold
+           ${changeTheme ? "bg-mainColor2 " : "bg-mainColor "} `}
       >
         {t("EditProps.CountdownTimer_Prop.ResetTimer")}
       </button>

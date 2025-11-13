@@ -59,28 +59,28 @@ const Button_Prop = ({ components, selectedComponent, handlePropChange }) => {
         defaultValue={selectedComponent.props?.title}
       />
 
-      <label
+      <div
         className={`text-lg flex items-center gap-2 font-bold ${
           changeTheme ? "text-white" : ""
         }`}
       >
         <CiText size={25} />
         {t("EditProps.Button_Props.Text")}
-      </label>
+      </div>
       <input
         value={selectedComponent.props?.text || ""}
         onChange={(e) => handlePropChange("text", e.target.value)}
-        className="w-full border rounded-md px-3 py-2 outline-none"
+        className="w-full border rounded-md px-3 font-semibold py-2 outline-none"
       />
 
-      <label
+      <div
         className={`text-lg flex items-center gap-2 font-bold ${
           changeTheme ? "text-white" : ""
         }`}
       >
         <IoIosColorPalette size={25} />
         {t("EditProps.Button_Props.Color")}
-      </label>
+      </div>
       <input
         type="color"
         value={selectedComponent.props?.color || "#3B82F6"}
@@ -88,18 +88,18 @@ const Button_Prop = ({ components, selectedComponent, handlePropChange }) => {
         className="w-[50%] h-14 cursor-pointer outline-none"
       />
 
-      <label
+      <div
         className={`text-lg flex items-center gap-2 font-bold ${
           changeTheme ? "text-white" : ""
         }`}
       >
         <GrAction size={25} />
         {t("EditProps.Button_Props.Action")}
-      </label>
+      </div>
       <select
         value={selectedComponent.props?.actionType || "alert"}
         onChange={(e) => handlePropChange("actionType", e.target.value)}
-        className="w-full border rounded-md px-3 py-2 outline-none"
+        className="w-full border rounded-md px-3 py-2 font-semibold outline-none"
       >
         <option value="alert">{t("EditProps.Button_Props.ShowAlert")}</option>
         <option value="link">{t("EditProps.Button_Props.OpenLink")}</option>
@@ -127,16 +127,16 @@ const Button_Prop = ({ components, selectedComponent, handlePropChange }) => {
             return extraOptions;
           })()}
       </select>
-      <label
+      <div
         className={`text-lg flex items-center gap-2 font-bold ${
           changeTheme ? "text-white" : ""
         }`}
       >
         <IoIosNotifications size={25} />
         {t("EditProps.Button_Props.AlertType")}
-      </label>
+      </div>
       <select
-        className="w-full border rounded-md px-3 py-2 outline-none"
+        className="w-full border rounded-md px-3 py-2 font-semibold outline-none"
         onChange={(e) => {
           handlePropChange("AlertType", e.target.value || "info");
         }}
@@ -147,14 +147,14 @@ const Button_Prop = ({ components, selectedComponent, handlePropChange }) => {
         <option value="error">Error</option>
       </select>
 
-      <label
+      <div
         className={`text-lg flex items-center gap-2 font-bold ${
           changeTheme ? "text-white" : ""
         }`}
       >
         <FaKeyboard size={25} />
         {t("EditProps.Button_Props.ActionValue")}
-      </label>
+      </div>
 
       {isRatingTarget ? (
         <input
@@ -168,7 +168,7 @@ const Button_Prop = ({ components, selectedComponent, handlePropChange }) => {
               Math.min(5, Math.max(1, e.target.value))
             )
           }
-          className="w-full border rounded-md px-3 py-2 outline-none"
+          className="w-full border rounded-md px-3 py-2 font-semibold outline-none"
         />
       ) : (
         <input
@@ -179,20 +179,20 @@ const Button_Prop = ({ components, selectedComponent, handlePropChange }) => {
               ? "https://example.com"
               : "Alert message"
           }
-          className="w-full border rounded-md px-3 py-2 outline-none"
+          className="w-full border rounded-md px-3 py-2 font-semibold outline-none"
         />
       )}
 
-      <label
+      <div
         className={`text-lg flex items-center gap-2 font-bold ${
           changeTheme ? "text-white" : ""
         }`}
       >
         <AiFillInteraction size={25} />
         {t("EditProps.Button_Props.InteractWith")}
-      </label>
+      </div>
       <select
-        className="border rounded-md px-3 py-2 w-full outline-none"
+        className="border rounded-md px-3 py-2 font-semibold w-full outline-none"
         value={selectedComponent.props?.targetId || ""}
         onChange={(e) => {
           const selectedId = e.target.value;

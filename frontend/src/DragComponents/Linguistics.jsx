@@ -199,9 +199,10 @@ const Linguistics = ({ props }) => {
         <button
           onClick={generateWords}
           disabled={loading}
-          className={`flex w-full max-w-[70%] bg-blue-500 hover:bg-blue-600 items-center justify-center text-white p-2 rounded-lg font-semibold shadow-black ${
-            genClicked ? "shadow-inner" : "shadow-md"
-          }`}
+          className={`flex w-full max-w-[30%] bg-blue-500 items-center justify-center
+             text-white p-2 rounded-lg font-semibold shadow-black ${
+               genClicked ? "shadow-inner" : "shadow-md"
+             }`}
         >
           {loading ? (
             <Loader type="ring" color="#ffffff" color2="#ffffff" />
@@ -213,9 +214,10 @@ const Linguistics = ({ props }) => {
           <button
             onClick={translateContent}
             disabled={traslateLoading || !words.length}
-            className={`flex w-full max-w-[70%] bg-green-500 hover:bg-green-600 items-center justify-center text-white p-2 rounded-lg font-semibold shadow-black ${
-              traClicked ? "shadow-inner" : "shadow-md"
-            }`}
+            className={`flex w-full max-w-[30%] bg-green-500 items-center justify-center
+               text-white p-2 rounded-lg font-semibold shadow-black ${
+                 traClicked ? "shadow-inner" : "shadow-md"
+               }`}
           >
             {traslateLoading ? (
               <Loader type="ring" color="#ffffff" />
@@ -228,27 +230,23 @@ const Linguistics = ({ props }) => {
         ) : (
           <></>
         )}
-        {props.InteractWith ? (
+        {props.InteractWith && words && sentence ? (
           <button
             onClick={() =>
               setSave_ToNotepad((prev) => [
                 ...prev,
                 {
                   textKey: "Words & Sentence",
-                  value: (
-                    <div>
-                      <div>Words:</div>
-                      {words.join(" , ")}
-                      <br />
-                      <div>Sentence:</div>
-                      {sentence}
-                    </div>
-                  ),
+                  value: {
+                    words: words,
+                    sentence: sentence,
+                  },
                   NoteTitle: props.InteractWith,
                 },
               ])
             }
-            className="bg-green-500 p-1 w-[70%] justify-center flex items-center gap-2 text-white font-semibold shadow-black shadow-md text-md rounded-lg"
+            className="bg-orange-500 p-1 w-[70%] justify-center flex items-center gap-2
+             text-white font-semibold shadow-black shadow-md text-md rounded-lg"
           >
             <IoIosSave size={20} /> Save to Notepad
           </button>

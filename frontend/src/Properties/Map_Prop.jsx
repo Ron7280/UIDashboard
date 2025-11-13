@@ -16,38 +16,38 @@ const Map_Prop = ({ selectedComponent, handlePropChange }) => {
         handlePropChange={handlePropChange}
         defaultValue={selectedComponent.props?.title}
       />
-      <label
+      <div
         className={`${
           changeTheme ? "text-white" : ""
         } text-lg flex items-center gap-2 font-bold`}
       >
         <TbWorldLatitude size={25} />
         {t("EditProps.Map_Prop.Latitude")}
-      </label>
+      </div>
       <input
         type="number"
         value={selectedComponent.props?.latitude || 0}
         onChange={(e) =>
           handlePropChange("latitude", parseFloat(e.target.value))
         }
-        className="w-full border rounded-md px-3 py-2 outline-none"
+        className="w-full border rounded-md px-3 py-2 font-semibold outline-none"
       />
 
-      <label
+      <div
         className={`${
           changeTheme ? "text-white" : ""
         } text-lg flex items-center gap-2 font-bold`}
       >
         <TbWorldLongitude size={25} />
         {t("EditProps.Map_Prop.Longitude")}
-      </label>
+      </div>
       <input
         type="number"
         value={selectedComponent.props?.longitude || 0}
         onChange={(e) =>
           handlePropChange("longitude", parseFloat(e.target.value))
         }
-        className="w-full border rounded-md px-3 py-2 outline-none"
+        className="w-full border rounded-md px-3 py-2 font-semibold outline-none"
       />
 
       <div

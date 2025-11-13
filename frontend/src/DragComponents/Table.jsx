@@ -17,7 +17,7 @@ const Table = ({ columns = [], data = [], width, height }) => {
       >
         <table className="w-full text-left border-collapse">
           <thead
-            className={`${changeTheme ? "bg-mainColor2" : "bg-lightIndigo"}`}
+            className={`${changeTheme ? "bg-mainColor2" : "bg-mainColor"}`}
           >
             <tr>
               {columns.map((col, idx) => (

@@ -14,6 +14,7 @@ const Speedometer = ({ props, handlePropChange }) => {
   const [changeTheme, setChangeTheme] = useContext(Change_Theme_context);
   const [value, setValue] = useState(0);
   const [cpuData, setCpuData] = useState({});
+
   const fetchCpuData = async () => {
     try {
       const res = await fetch(`${API}/dashboard/cpu`);

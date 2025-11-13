@@ -49,7 +49,7 @@ const Speedometer_Prop = ({ selectedComponent, handlePropChange }) => {
       <select
         value={selectedComponent.props?.speed || "speed"}
         onChange={(e) => handlePropChange("speed", e.target.value)}
-        className="w-full border rounded-md px-3 py-2 outline-none"
+        className="w-full border rounded-md px-3 py-2 font-semibold outline-none"
       >
         {options.map((opt) => (
           <option key={opt.key} value={opt.value}>

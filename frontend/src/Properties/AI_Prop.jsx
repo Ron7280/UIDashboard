@@ -27,7 +27,7 @@ const AI_Prop = ({ components, selectedComponent, handlePropChange }) => {
       </label>
 
       <select
-        className="border rounded-md px-3 py-2 w-full outline-none"
+        className="border rounded-md px-3 py-2 font-semibold w-full outline-none"
         value={selectedComponent.props?.targetId || ""}
         onChange={(e) => {
           const selectedId = e.target.value;

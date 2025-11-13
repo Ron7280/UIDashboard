@@ -17,42 +17,42 @@ const Avatar_Prop = ({ selectedComponent, handlePropChange }) => {
         handlePropChange={handlePropChange}
         defaultValue={selectedComponent.props?.title}
       />
-      <label
+      <div
         className={`text-lg flex items-center gap-2 font-bold ${
           changeTheme ? "text-white" : ""
         }`}
       >
         <FaUserAlt size={20} />
         {t("EditProps.Avatar_Props.Name")}
-      </label>
+      </div>
       <input
         value={selectedComponent.props?.name || ""}
         onChange={(e) => handlePropChange("name", e.target.value)}
-        className="w-full border rounded-md px-3 py-2 outline-none"
+        className="w-full border rounded-md font-semibold px-3 py-2 outline-none"
       />
 
-      <label
+      <div
         className={`text-lg font-bold mt-4 flex items-center gap-2 ${
           changeTheme ? "text-white" : ""
         }`}
       >
         <IoMdLink size={25} />
         {t("EditProps.Avatar_Props.Image")}
-      </label>
+      </div>
       <input
         value={selectedComponent.props?.src || ""}
         onChange={(e) => handlePropChange("src", e.target.value)}
-        className="w-full border rounded-md px-3 py-2 outline-none"
+        className="w-full border font-semibold rounded-md px-3 py-2 outline-none"
       />
 
-      <label
+      <div
         className={`text-lg font-bold mt-4 flex items-center gap-2 ${
           changeTheme ? "text-white" : ""
         }`}
       >
         <FaImage size={25} />
         {t("EditProps.Avatar_Props.Choose")}
-      </label>
+      </div>
       <div className="relative w-full ">
         <input
           type="file"
@@ -72,10 +72,8 @@ const Avatar_Prop = ({ selectedComponent, handlePropChange }) => {
         <button
           type="button"
           className={`w-full px-4 py-2 cursor-pointer rounded-md  
-             text-white font-medium  ${
-               changeTheme
-                 ? "bg-SecondryTeal hover:bg-SecondryTeal"
-                 : "bg-lightIndigo hover:bg-mainColor"
+             text-white font-semibold  ${
+               changeTheme ? "bg-mainColor2 " : "bg-mainColor "
              }`}
         >
           {t("EditProps.Avatar_Props.ChooseAvatar")}

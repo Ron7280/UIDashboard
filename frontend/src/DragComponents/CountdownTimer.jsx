@@ -49,7 +49,7 @@ const CountdownTimer = ({ startTime, resetSignal }) => {
   return (
     <div
       dir="ltr"
-      className={`flex gap-4 items-center justify-center font-bold
+      className={`flex w-full h-full gap-4 items-center justify-center font-semibold
           p-3 rounded-xl shadow-md  ${
             changeTheme ? "shadow-lightTeal bg-white" : "shadow-mainColor"
           }  ${

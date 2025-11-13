@@ -5,7 +5,7 @@ const Select = ({ props, handlePropChange, DEFAULT_PROPS }) => {
   const [changeTheme, setChangeTheme] = useContext(Change_Theme_context);
   return (
     <select
-      className={`w-full h-full border rounded-md px-2 py-1 outline-none shadow-md  ${
+      className={`w-full h-full font-semibold border rounded-md px-2 py-1 outline-none shadow-md  ${
         changeTheme ? "shadow-lightTeal" : "shadow-mainColor"
       } `}
       value={props.selected ?? ""}

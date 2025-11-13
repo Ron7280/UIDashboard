@@ -8,10 +8,8 @@ const Text = ({ props, DEFAULT_PROPS }) => {
   const { t } = useTranslation();
   return (
     <div
-      className={`shadow-md p-1 w-full text-center rounded-lg ${
-        changeTheme
-          ? "text-white shadow-lightTeal"
-          : "text-black shadow-mainColor"
+      className={`shadow-md p-1 w-full text-center bg-white text-black rounded-lg ${
+        changeTheme ? " shadow-lightTeal" : " shadow-mainColor"
       } font-medium`}
     >
       {props.text ? props.text : t("DragCompo.Text.Text")}

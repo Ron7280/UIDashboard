@@ -51,7 +51,7 @@ const Chart_Prop = ({ selectedComponent, handlePropChange, selectedIndex }) => {
         <select
           value={selectedComponent.props?.type || "bar"}
           onChange={(e) => handlePropChange("type", e.target.value)}
-          className="w-full border rounded-md px-3 py-2 outline-none"
+          className="w-full border font-semibold rounded-md px-3 py-2 outline-none"
         >
           <option value="bar">Bar</option>
           <option value="line">Line</option>
@@ -75,16 +75,12 @@ const Chart_Prop = ({ selectedComponent, handlePropChange, selectedIndex }) => {
           value={tempDataSource}
           onChange={(e) => setTempDataSource(e.target.value)}
           placeholder={t("EditProps.Chat_Props.Placeholder")}
-          className="w-full border rounded-md px-3 py-2 outline-none"
+          className="w-full border rounded-md px-3 py-2 font-semibold outline-none"
         />
         <button
           type="button"
-          className={`mt-3 px-4 py-2  text-white rounded-md 
-            ${
-              changeTheme
-                ? "bg-SecondryTeal hover:bg-SecondryTeal"
-                : "bg-lightIndigo hover:bg-mainColor"
-            } `}
+          className={`mt-3 px-4 py-2 font-semibold text-white rounded-md 
+            ${changeTheme ? "bg-mainColor2 " : "bg-mainColor "} `}
           onClick={() => handlePropChange("dataSource", tempDataSource)}
         >
           {t("EditProps.Chat_Props.Set")}
@@ -105,7 +101,7 @@ const Chart_Prop = ({ selectedComponent, handlePropChange, selectedIndex }) => {
             <select
               value={selectedComponent.props.labelKey || ""}
               onChange={(e) => handlePropChange("labelKey", e.target.value)}
-              className="w-full border rounded-md px-3 py-2 outline-none"
+              className="w-full border rounded-md font-semibold px-3 py-2 outline-none"
             >
               <option value="">{t("EditProps.Chat_Props.Select")}</option>
               {chartKeys.map((k) => (
@@ -134,10 +130,10 @@ const Chart_Prop = ({ selectedComponent, handlePropChange, selectedIndex }) => {
                   Array.from(e.target.selectedOptions, (opt) => opt.value)
                 )
               }
-              className="w-full border rounded-md px-3 py-2 h-32 outline-none"
+              className="w-full border rounded-md  px-3 py-2 h-32 outline-none"
             >
               {chartKeys.map((k) => (
-                <option key={k} value={k}>
+                <option className="font-semibold " key={k} value={k}>
                   {k}
                 </option>
               ))}

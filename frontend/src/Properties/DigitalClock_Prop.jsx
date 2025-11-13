@@ -18,14 +18,14 @@ const DigitalClock_Prop = ({ selectedComponent, handlePropChange }) => {
         defaultValue={selectedComponent.props?.title}
       />
       <div className="flex flex-col  gap-2">
-        <label
+        <div
           className={`text-lg flex items-center gap-2 font-bold ${
             changeTheme ? "text-white" : ""
           }`}
         >
           <IoIosColorPalette size={30} />
           {t("EditProps.DigitalClock_Prop.Color")}
-        </label>
+        </div>
         <input
           type="color"
           value={selectedComponent.props?.color || "#374151"}
@@ -35,35 +35,35 @@ const DigitalClock_Prop = ({ selectedComponent, handlePropChange }) => {
       </div>
 
       <div className="flex flex-col gap-2">
-        <label
+        <div
           className={`text-lg flex items-center gap-2 font-bold ${
             changeTheme ? "text-white" : ""
           }`}
         >
           <FaFont size={25} />
           {t("EditProps.DigitalClock_Prop.Size")}
-        </label>
+        </div>
         <input
           type="number"
           value={parseInt(selectedComponent.props?.fontSize) || 32}
           onChange={(e) => handlePropChange("fontSize", e.target.value + "px")}
-          className="w-full border rounded-md px-3 py-2 outline-none"
+          className="w-full border rounded-md px-3 py-2 font-semibold outline-none"
         />
       </div>
 
       <div className="flex flex-col gap-2">
-        <label
+        <div
           className={`text-lg flex items-center gap-2 font-bold ${
             changeTheme ? "text-white" : ""
           }`}
         >
           <FaClockRotateLeft size={25} />
           {t("EditProps.DigitalClock_Prop.Format")}
-        </label>
+        </div>
         <select
           value={selectedComponent.props?.format || "24h"}
           onChange={(e) => handlePropChange("format", e.target.value)}
-          className="w-full border rounded-md px-3 py-2 outline-none"
+          className="w-full border rounded-md px-3 py-2 font-semibold outline-none"
         >
           <option value="24h">{t("EditProps.DigitalClock_Prop.24Hour")}</option>
           <option value="12h">{t("EditProps.DigitalClock_Prop.12Hour")}</option>

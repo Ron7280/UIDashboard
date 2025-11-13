@@ -33,7 +33,7 @@ const Select_Prop = ({
             <div key={i} className="flex gap-2">
               <input
                 type="text"
-                className="border px-2 py-1 rounded w-full outline-none"
+                className="border px-2 py-1 font-semibold rounded w-full outline-none"
                 value={opt}
                 onChange={(e) => {
                   const newOptions = [
@@ -59,9 +59,9 @@ const Select_Prop = ({
         )}
       </div>
       <button
-        className={`mt-2 ${
-          changeTheme ? "bg-lightTeal" : "bg-lightIndigo"
-        }  text-lg  text-white px-3 py-1 rounded-md`}
+        className={`mt-2 font-semibold ${
+          changeTheme ? "bg-mainColor2" : "bg-mainColor"
+        }   text-white px-3 py-1 rounded-md`}
         onClick={() => {
           const newOptions = [
             ...(selectedComponent.props.options ?? []),

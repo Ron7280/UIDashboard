@@ -23,16 +23,14 @@ const TitleSetter = ({ compName, handlePropChange, defaultValue = "" }) => {
           placeholder={t("TitleSetter.Placeholder")}
           value={title}
           onChange={(e) => setTitle(e.target.value)}
-          className="outline-none border px-3 py-2 rounded-lg flex-1"
+          className="outline-none border px-3 py-2 rounded-lg font-semibold flex-1"
         />
       </div>
       <button
         type="button"
         className={`mt-2 px-4 py-2 ${
-          changeTheme
-            ? "bg-mainColor2 hover:bg-SecondryTeal"
-            : "bg-lightIndigo hover:bg-mainColor"
-        }  text-white rounded-lg font-bold `}
+          changeTheme ? "bg-mainColor2 " : "bg-mainColor "
+        }  text-white rounded-lg font-semibold `}
         onClick={() => {
           handlePropChange("title", title);
           setTitle("");

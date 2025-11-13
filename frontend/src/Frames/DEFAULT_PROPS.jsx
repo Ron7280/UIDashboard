@@ -63,7 +63,7 @@ const DEFAULT_PROPS = {
   Input: {
     placeholder: "",
     title: "",
-    width: 200,
+    width: 250,
     height: 40,
     icon: FaKeyboard,
   },
@@ -187,7 +187,7 @@ const DEFAULT_PROPS = {
   Loader: {
     title: "",
     type: "spinner",
-    color: "#3B82F6",
+    color: "#4338ca",
     size: 25,
     icon: FaSpinner,
   },

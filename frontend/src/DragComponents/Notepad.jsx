@@ -70,19 +70,25 @@ const Notepad = ({
           {relatedNotes.length > 0 ? (
             <div className="flex flex-col gap-1 border-t pt-2">
               {relatedNotes.map((entry, idx) => (
-                <div
-                  key={idx}
-                  className="flex justify-between items-center border-b py-1 text-sm font-semibold"
-                >
-                  <span>
-                    <button
-                      onClick={() => handleDeleteNote(entry.textKey)}
-                      className="text-red-600 pr-2 hover:text-red-700"
-                    >
-                      <FaTrash size={14} />
-                    </button>
-                    {entry.textKey} <br /> {entry.value}
-                  </span>
+                <div key={idx} className="mb-2">
+                  {typeof entry.value === "object" &&
+                  entry.value.words &&
+                  entry.value.sentence ? (
+                    <>
+                      <button
+                        onClick={() => handleDeleteNote(entry.textKey)}
+                        className="text-red-600 pr-2 hover:text-red-700"
+                      >
+                        <FaTrash size={14} />
+                      </button>
+                      <div>Words:</div>
+                      <div>{entry.value.words.join(" , ")}</div>
+                      <div>Sentence:</div>
+                      <div>{entry.value.sentence}</div>
+                    </>
+                  ) : (
+                    <div>{entry.value}</div>
+                  )}
                 </div>
               ))}
             </div>

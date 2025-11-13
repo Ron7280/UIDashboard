@@ -35,7 +35,7 @@ const Checkbox = ({ props, handlePropChange = () => {} }) => {
         onChange={handleChange}
         className="w-4 h-4 outline-none"
       />
-      <div className={`${changeTheme ? "text-white" : ""}`}>
+      <div className={`font-semibold ${changeTheme ? "text-white" : ""}`}>
         {localChecked
           ? t("DragCompo.Checkbox.Checked")
           : t("DragCompo.Checkbox.NotChecked")}

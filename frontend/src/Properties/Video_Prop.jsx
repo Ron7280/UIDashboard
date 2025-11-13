@@ -33,29 +33,29 @@ const Video_Prop = ({ components, selectedComponent, handlePropChange }) => {
         handlePropChange={handlePropChange}
         defaultValue={selectedComponent.props?.title}
       />
-      <label
+      <div
         className={`text-lg flex items-center gap-2 font-bold ${
           changeTheme ? "text-white" : ""
         }`}
       >
         <FaYoutube size={25} />
         {t("EditProps.Video_Prop.Link")}
-      </label>
+      </div>
       <input
         value={selectedComponent.props?.src || ""}
         onChange={(e) => handlePropChange("src", e.target.value)}
         placeholder={t("EditProps.Video_Prop.Placeholder")}
-        className="w-full border rounded-md px-3 py-2 outline-none"
+        className="w-full border rounded-md px-3 py-2  font-semibold outline-none"
       />
       <div className="flex flex-col gap-2">
-        <label
+        <div
           className={`text-lg flex items-center gap-2 font-bold ${
             changeTheme ? "text-white" : ""
           }`}
         >
           <MdOndemandVideo size={25} />
           {t("EditProps.Video_Prop.Choose")}
-        </label>
+        </div>
         <input
           id="videoFileInput"
           type="file"
@@ -70,25 +70,21 @@ const Video_Prop = ({ components, selectedComponent, handlePropChange }) => {
           className="hidden outline-none"
         />
         <button
-          className={`px-3 py-2  text-white rounded-md 
-          ${
-            changeTheme
-              ? " bg-SecondryTeal hover:bg-SecondryTeal"
-              : " bg-lightIndigo hover:bg-mainColor"
-          }`}
+          className={`px-3 py-2 font-semibold text-white rounded-md 
+          ${changeTheme ? " bg-mainColor2 " : " bg-mainColor "}`}
           onClick={() => document.getElementById("videoFileInput").click()}
         >
           {t("EditProps.Video_Prop.Choose")}
         </button>
       </div>
       <div className="flex items-center gap-4">
-        <label
-          className={`text-lg flex items-center gap-2 font-bold w-[50%]
+        <div
+          className={`text-lg flex items-center gap-2 font-semibold w-[50%]
           ${changeTheme ? "text-white" : ""}`}
         >
           <FaPlay />
           {t("EditProps.Video_Prop.Auto")}
-        </label>
+        </div>
         <input
           type="checkbox"
           checked={selectedComponent.props?.autoplay || false}
@@ -97,14 +93,14 @@ const Video_Prop = ({ components, selectedComponent, handlePropChange }) => {
         />
       </div>
       <div className="flex items-center gap-4">
-        <label
-          className={`text-lg flex items-center gap-2 font-bold w-[50%] ${
+        <div
+          className={`text-lg flex items-center gap-2 font-semibold w-[50%] ${
             changeTheme ? "text-white" : ""
           }`}
         >
           <AiFillControl size={25} />
           {t("EditProps.Video_Prop.Controls")}
-        </label>
+        </div>
         <input
           type="checkbox"
           checked={selectedComponent.props?.controls ?? true}
@@ -112,17 +108,17 @@ const Video_Prop = ({ components, selectedComponent, handlePropChange }) => {
           className="cursor-pointer outline-none"
         />
       </div>
-      <label
+      <div
         className={`text-lg flex items-center gap-2 font-bold ${
           changeTheme ? "text-white" : ""
         }`}
       >
         <AiFillInteraction size={25} />
         {t("EditProps.Video_Prop.InteractWith")}
-      </label>
+      </div>
 
       <select
-        className="border rounded-md px-3 py-2 w-full outline-none"
+        className="border rounded-md px-3 py-2 font-semibold w-full outline-none"
         value={selectedComponent.props?.targetId || ""}
         onChange={(e) => {
           const selectedId = e.target.value;

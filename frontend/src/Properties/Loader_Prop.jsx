@@ -31,7 +31,7 @@ const Loader_Prop = ({ selectedComponent, handlePropChange }) => {
           setLoaderType(e.target.value),
             handlePropChange("type", e.target.value);
         }}
-        className="w-full border rounded-md px-3 py-2 outline-none"
+        className="w-full border rounded-md px-3 py-2 font-semibold outline-none"
       >
         <option value="spinner">Spinner</option>
         <option value="dots">Dots</option>

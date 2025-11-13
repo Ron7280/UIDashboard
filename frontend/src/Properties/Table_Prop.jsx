@@ -77,7 +77,7 @@ const Table_Prop = ({ selectedComponent, handlePropChange }) => {
               handlePropChange("columns", newCols);
             }}
             placeholder={t("EditProps.Table_Prop.Title")}
-            className="flex-1 border rounded-md px-2 py-1 outline-none"
+            className="flex-1 border rounded-md px-2 py-1 font-semibold outline-none"
           />
           <input
             value={col.key || ""}
@@ -87,7 +87,7 @@ const Table_Prop = ({ selectedComponent, handlePropChange }) => {
               handlePropChange("columns", newCols);
             }}
             placeholder={t("EditProps.Table_Prop.Key")}
-            className="flex-1 border rounded-md px-2 py-1 outline-none"
+            className="flex-1 border rounded-md px-2 py-1 font-semibold outline-none"
           />
           <button
             onClick={() => {
@@ -95,7 +95,7 @@ const Table_Prop = ({ selectedComponent, handlePropChange }) => {
               newCols.splice(idx, 1);
               handlePropChange("columns", newCols);
             }}
-            className="px-2 py-1 text-red-600"
+            className="px-2 py-1 font-semibold text-red-600"
           >
             ✕
           </button>
@@ -111,8 +111,8 @@ const Table_Prop = ({ selectedComponent, handlePropChange }) => {
           handlePropChange("columns", newCols);
         }}
         className={`px-2 py-1 mt-1 ${
-          changeTheme ? "bg-lightTeal" : "bg-mainColor"
-        }  text-white rounded-md text-sm`}
+          changeTheme ? "bg-mainColor2" : "bg-mainColor"
+        }  text-white font-semibold rounded-md`}
       >
         {t("EditProps.Table_Prop.AddColumn")}
       </button>
@@ -149,7 +149,7 @@ const Table_Prop = ({ selectedComponent, handlePropChange }) => {
                   handlePropChange("data", newData);
                 }}
                 placeholder={col.header}
-                className="flex-1 border rounded-md px-2 py-1 outline-none"
+                className="flex-1 border rounded-md px-2 py-1 font-semibold outline-none"
               />
             ))}
             <button
@@ -158,7 +158,7 @@ const Table_Prop = ({ selectedComponent, handlePropChange }) => {
                 newData.splice(rowIndex, 1);
                 handlePropChange("data", newData);
               }}
-              className="px-2 py-1 text-red-600"
+              className="px-2 py-1 font-semibold text-red-600"
             >
               ✕
             </button>
@@ -178,8 +178,8 @@ const Table_Prop = ({ selectedComponent, handlePropChange }) => {
           handlePropChange("data", newData);
         }}
         className={`px-2 py-1 mt-1 ${
-          changeTheme ? "bg-lightTeal" : "bg-mainColor"
-        } text-white rounded-md text-sm`}
+          changeTheme ? "bg-mainColor2" : "bg-mainColor"
+        } text-white rounded-md font-semibold`}
       >
         {t("EditProps.Table_Prop.AddRow")}
       </button>
@@ -191,11 +191,13 @@ const Table_Prop = ({ selectedComponent, handlePropChange }) => {
         </div>
 
         <div className="flex gap-3">
-          <label
-            className={`px-3 py-1 w-full justify-center flex items-center gap-3 
-          font-bold ${
-            changeTheme ? "text-SecondryTeal bg-white" : "bg-mainColor"
-          }  text-white rounded-md cursor-pointer`}
+          <div
+            className={`px-3 py-1  w-full justify-center flex items-center gap-3 
+          font-semibold ${
+            changeTheme
+              ? "text-SecondryTeal bg-white"
+              : "bg-mainColor text-white"
+          }  rounded-md cursor-pointer`}
           >
             <FaFileImport size={20} /> {t("EditProps.Table_Prop.Import")}
             <input
@@ -204,7 +206,7 @@ const Table_Prop = ({ selectedComponent, handlePropChange }) => {
               className="hidden outline-none"
               onChange={(e) => Import_From_Excel(e.target.files?.[0])}
             />
-          </label>
+          </div>
 
           <button
             onClick={Export_To_Excel}

@@ -27,7 +27,7 @@ const Image_Prop = ({ selectedComponent, handlePropChange }) => {
       <input
         value={selectedComponent.props?.src || ""}
         onChange={(e) => handlePropChange("src", e.target.value)}
-        className="w-full border rounded-md px-3 py-2 outline-none"
+        className="w-full border rounded-md px-3 font-semibold py-2 outline-none"
       />
 
       <label
@@ -58,10 +58,8 @@ const Image_Prop = ({ selectedComponent, handlePropChange }) => {
         <button
           type="button"
           className={`w-full px-4 py-2 cursor-pointer rounded-md 
-             text-white font-medium ${
-               changeTheme
-                 ? "bg-SecondryTeal hover:bg-SecondryTeal"
-                 : "bg-lightIndigo hover:bg-mainColor"
+             text-white font-semibold ${
+               changeTheme ? "bg-mainColor2 " : "bg-mainColor "
              }`}
         >
           {t("EditProps.Image_Prop.Image")}

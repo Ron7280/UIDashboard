@@ -3,7 +3,7 @@ import { Change_Theme_context } from "../Contexts";
 
 const Loader = ({
   type = "spinner",
-  color = "#4338CA",
+  color = "#4338ca",
   color2 = "#2DD4BF",
   size = 30,
 }) => {

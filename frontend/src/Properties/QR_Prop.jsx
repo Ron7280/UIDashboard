@@ -16,33 +16,33 @@ const QR_Prop = ({ selectedComponent, handlePropChange }) => {
         handlePropChange={handlePropChange}
         defaultValue={selectedComponent.props?.title}
       />
-      <label
+      <div
         className={`text-lg flex items-center gap-2 font-bold ${
           changeTheme ? "text-white" : ""
         }`}
       >
         <CiLink size={25} />
         {t("EditProps.QR_Prop.Link")}
-      </label>
+      </div>
       <input
         value={selectedComponent.props?.value || ""}
         onChange={(e) => handlePropChange("value", e.target.value)}
         placeholder={t("EditProps.QR_Prop.Placeholder")}
-        className="w-full border rounded-md px-3 py-2 outline-none"
+        className="w-full border rounded-md px-3 py-2 font-semibold outline-none"
       />
 
-      <label
+      <div
         className={`text-lg flex items-center gap-2 font-bold ${
           changeTheme ? "text-white" : ""
         }`}
       >
         <FaQrcode size={25} />
         {t("EditProps.QR_Prop.Type")}
-      </label>
+      </div>
       <select
         value={selectedComponent.props?.type || "qr"}
         onChange={(e) => handlePropChange("type", e.target.value)}
-        className="w-full border rounded-md px-3 py-2 outline-none"
+        className="w-full border rounded-md px-3 py-2 font-semibold outline-none"
       >
         <option value="qr">QR Code</option>
         <option value="bar">Barcode</option>

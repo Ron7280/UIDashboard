@@ -30,35 +30,35 @@ const API_Prop = ({ selectedComponent, handlePropChange }) => {
         defaultValue={selectedComponent.props?.title}
       />
 
-      <label
+      <div
         className={`flex items-center gap-2 text-lg font-bold ${
           changeTheme ? "text-white" : ""
         }`}
       >
         <VscJson size={25} />
         {t("EditProps.API_Props.Set")}
-      </label>
+      </div>
 
       <input
         value={tempApi}
         onChange={(e) => setTempApi(e.target.value)}
         placeholder={t("EditProps.API_Props.Placeholder")}
-        className="w-full border rounded-md px-3 py-2 outline-none"
+        className="w-full border rounded-md px-3 py-2 font-semibold outline-none"
       />
 
-      <label
+      <div
         className={`flex items-center gap-2 text-lg font-bold ${
           changeTheme ? "text-white" : ""
         }`}
       >
         <VscSymbolMethod size={25} />
         {t("EditProps.API_Props.Method")}
-      </label>
+      </div>
 
       <select
         value={tempMethod}
         onChange={(e) => setTempMethod(e.target.value)}
-        className="w-full border rounded-md px-3 py-2 outline-none"
+        className="w-full border rounded-md px-3 py-2 font-semibold outline-none"
       >
         <option value="GET">GET</option>
         <option value="POST">POST</option>
@@ -69,11 +69,11 @@ const API_Prop = ({ selectedComponent, handlePropChange }) => {
 
       {methodsWithBody.includes(tempMethod) && (
         <>
-          <label
+          <div
             className={`text-lg font-bold ${changeTheme ? "text-white" : ""}`}
           >
             Body (JSON)
-          </label>
+          </div>
           <textarea
             value={tempBody}
             onChange={(e) => setTempBody(e.target.value)}
@@ -86,9 +86,7 @@ const API_Prop = ({ selectedComponent, handlePropChange }) => {
       <button
         onClick={applyApiChange}
         className={`w-full ${
-          changeTheme
-            ? "bg-SecondryTeal hover:bg-SecondryTeal"
-            : "bg-lightIndigo hover:bg-mainColor"
+          changeTheme ? "bg-mainColor2 " : "bg-mainColor"
         } text-white font-semibold rounded-md py-2`}
       >
         {t("EditProps.API_Props.SetBTN")}

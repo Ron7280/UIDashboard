@@ -9,7 +9,6 @@ import { useTranslation } from "react-i18next";
 const Notepad_Prop = ({ selectedComponent, handlePropChange }) => {
   const [changeTheme, setChangeTheme] = useContext(Change_Theme_context);
   const [save_ToNotepad] = useContext(Save_To_Notepad_context);
-
   const { t } = useTranslation();
 
   const handleDownloadTxt = () => {
@@ -31,8 +30,22 @@ const Notepad_Prop = ({ selectedComponent, handlePropChange }) => {
 
       if (relatedNotes.length > 0) {
         fileContent = relatedNotes
-          .map((entry) => `${entry.textKey}: ${entry.value}`)
-          .join("\n");
+          .map((entry) => {
+            // if it's an object with words & sentence
+            if (
+              entry.value &&
+              typeof entry.value === "object" &&
+              entry.value.words &&
+              entry.value.sentence
+            ) {
+              return `Words:\n${entry.value.words.join(" , ")}\nSentence:\n${
+                entry.value.sentence
+              }`;
+            }
+            // fallback for string or other types
+            return entry.value;
+          })
+          .join("\n\n");
       } else {
         fileContent = content || "";
       }
@@ -54,16 +67,16 @@ const Notepad_Prop = ({ selectedComponent, handlePropChange }) => {
         defaultValue={selectedComponent.props?.title}
       />
 
-      <label
+      <div
         className={`${
           changeTheme ? "text-white" : ""
         } text-lg flex items-center gap-2 font-bold`}
       >
         <BiSolidNotepad size={25} />
         {t("EditProps.Notepad_Prop.Type")}
-      </label>
+      </div>
       <select
-        className="border rounded-md px-3 py-2 w-full outline-none"
+        className="border rounded-md px-3 py-2 font-semibold w-full outline-none"
         value={selectedComponent.props?.type || "text"}
         onChange={(e) => handlePropChange("type", e.target.value)}
       >
@@ -71,26 +84,12 @@ const Notepad_Prop = ({ selectedComponent, handlePropChange }) => {
         <option value="todo">{t("EditProps.Notepad_Prop.List")}</option>
       </select>
 
-      <label
-        className={`${
-          changeTheme ? "text-white" : ""
-        } text-lg flex items-center gap-2 font-bold`}
-      >
-        <MdOutlineEditNote size={30} />
-        {t("EditProps.Notepad_Prop.Title")}
-      </label>
-      <input
-        value={selectedComponent.props?.title || ""}
-        onChange={(e) => handlePropChange("title", e.target.value)}
-        className="border rounded-md px-3 py-2 w-full outline-none"
-        placeholder={t("EditProps.Notepad_Prop.Placeholder")}
-      />
-
       <button
         onClick={handleDownloadTxt}
-        className={`flex items-center justify-center gap-2 py-2 rounded-md font-semibold shadow-md transition-all ${
-          changeTheme ? "bg-lightTeal text-black " : "bg-mainColor text-white "
-        }`}
+        className={`flex items-center justify-center gap-2 py-2 rounded-md 
+          font-semibold shadow-md transition-all text-white ${
+            changeTheme ? "bg-mainColor2 " : "bg-mainColor  "
+          }`}
       >
         <IoMdDownload size={22} />
         {t("EditProps.Notepad_Prop.Download")}

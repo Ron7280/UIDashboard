@@ -31,19 +31,19 @@ const Toggle_prop = ({ selectedComponent, handlePropChange }) => {
         defaultValue={selectedComponent.props?.title}
       />
 
-      <label
+      <div
         className={`text-lg flex items-center gap-2 font-bold ${
           changeTheme ? "text-white" : ""
         }`}
       >
         <FaToggleOn size={25} />
         {t("EditProps.Toggle_prop.Action")}
-      </label>
+      </div>
 
       <select
         value={selectedComponent.props?.actionType}
         onChange={(e) => handlePropChange("actionType", e.target.value)}
-        className="w-full border rounded-md px-3 py-2 outline-none"
+        className="w-full border rounded-md px-3 py-2 font-semibold outline-none"
       >
         <option value="toggle">{t("EditProps.Toggle_prop.Toggle")}</option>
         <option value="changeTheme">
@@ -59,19 +59,19 @@ const Toggle_prop = ({ selectedComponent, handlePropChange }) => {
 
       {selectedComponent.props?.actionType === "changeLanguage" && (
         <>
-          <label
+          <div
             className={`text-lg flex items-center gap-2 font-bold ${
               changeTheme ? "text-white" : ""
             }`}
           >
             <GrLanguage size={25} /> {t("EditProps.Toggle_prop.Lang")}
-          </label>
+          </div>
 
           <div className="flex gap-2">
             <select
               value={selectedComponent.props?.lang1}
               onChange={(e) => handlePropChange("lang1", e.target.value)}
-              className="w-full border rounded-md px-3 py-2 outline-none"
+              className="w-full border rounded-md px-3 py-2 font-semibold outline-none"
             >
               {LanguagesOptions.map((lang, index) => (
                 <option key={index} value={lang.title}>
@@ -83,7 +83,7 @@ const Toggle_prop = ({ selectedComponent, handlePropChange }) => {
             <select
               value={selectedComponent.props?.lang2}
               onChange={(e) => handlePropChange("lang2", e.target.value)}
-              className="w-full border rounded-md px-3 py-2 outline-none"
+              className="w-full border rounded-md px-3 py-2 font-semibold outline-none"
             >
               {LanguagesOptions.map((lang, index) => (
                 <option key={index} value={lang.title}>

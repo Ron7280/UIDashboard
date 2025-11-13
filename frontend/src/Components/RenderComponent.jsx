@@ -137,6 +137,7 @@ const RenderComponent = ({ comp, handlePropChange, DEFAULT_PROPS }) => {
         <Card
           title={props.title ?? DEFAULT_PROPS.Card.title}
           content={props.content ?? DEFAULT_PROPS.Card.content}
+          props={props}
         />
       );
 

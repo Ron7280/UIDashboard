@@ -3,13 +3,14 @@ import { FaIdCardAlt } from "react-icons/fa";
 import { Change_Theme_context } from "../Contexts";
 import { useTranslation } from "react-i18next";
 
-const Card = ({ title, content }) => {
+const Card = ({ props, title, content }) => {
   const [changeTheme, setChangeTheme] = useContext(Change_Theme_context);
   const [cardContent, setCardContent] = useState(content);
   const { t } = useTranslation();
 
   return (
     <div
+      title={props.title}
       className={`w-full h-full bg-white border-2 rounded-xl
        shadow-md  ${
          changeTheme ? "shadow-lightTeal" : "shadow-mainColor"
@@ -20,10 +21,10 @@ const Card = ({ title, content }) => {
           size={25}
           className={`${changeTheme ? "text-mainColor2" : "text-mainColor"}`}
         />
-        {title ? title : t("DragCompo.Card.Title")}
+        {props.title ? props.title : t("DragCompo.Card.Title")}
       </div>
 
-      <div className="text-gray-600 text-sm flex-1 overflow-auto">
+      <div className="text-gray-600 font-semibold text-sm flex-1 overflow-auto">
         {content}
       </div>
     </div>

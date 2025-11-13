@@ -32,19 +32,19 @@ const Linguistics_Prop = ({
         defaultValue={selectedComponent.props?.title}
       />
 
-      <label
+      <div
         className={`text-lg flex items-center gap-2 font-bold ${
           changeTheme ? "text-white" : ""
         }`}
       >
         <MdGTranslate size={25} />
         {t("EditProps.Linguistics_Prop.TranslateTo")}
-      </label>
+      </div>
 
       <select
         onChange={(e) => handlePropChange("translateTo", e.target.value)}
         value={selectedComponent.props?.translateTo || ""}
-        className="w-full border rounded-md px-3 py-2 outline-none"
+        className="w-full border rounded-md px-3 py-2 font-semibold outline-none"
       >
         <option value="" disabled>
           {t("EditProps.Linguistics_Prop.Select")}
@@ -56,17 +56,17 @@ const Linguistics_Prop = ({
         ))}
       </select>
 
-      <label
+      <div
         className={`text-lg flex items-center gap-2 font-bold ${
           changeTheme ? "text-white" : ""
         }`}
       >
         <AiFillInteraction size={25} />
         {t("EditProps.Linguistics_Prop.InteractWith")}
-      </label>
+      </div>
 
       <select
-        className="border rounded-md px-3 py-2 w-full outline-none"
+        className="border rounded-md px-3 py-2 w-full font-semibold outline-none"
         value={selectedComponent.props?.targetId || ""}
         onChange={(e) => {
           const selectedId = e.target.value;
