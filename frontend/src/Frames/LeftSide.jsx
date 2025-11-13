@@ -57,7 +57,7 @@ const LeftSide = () => {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder={t("LeftSide.Search")}
-            className="w-full border font-bold rounded-md px-3 py-2 outline-none "
+            className="w-full border font-semibold rounded-md px-3 py-2 outline-none "
           />
           <div className="absolute right-3 top-2.5 text-gray-400">
             <AiOutlineSearch

@@ -64,7 +64,7 @@ const PagesBar = ({
               className="flex items-center gap-1"
               onClick={() => handlePageSwitch(index)}
             >
-              <div className="translate-x-3 group-hover:-translate-x-1 ">
+              <div className="translate-x-3 group-hover:-translate-x-1 font-semibold">
                 {page.name}
               </div>
               <MdEdit
@@ -82,7 +82,7 @@ const PagesBar = ({
         onClick={addNewPage}
         className={`p-1 w-[5%] h-full items-center justify-center flex rounded-ee-lg rounded-se-lg
           cursor-pointer ${
-            changeTheme ? "bg-lightTeal" : "bg-mainColor"
+            changeTheme ? "bg-mainColor2" : "bg-mainColor"
           } text-white`}
       >
         <MdAddToPhotos size={24} />

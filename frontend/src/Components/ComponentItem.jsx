@@ -30,7 +30,7 @@ const ComponentItem = ({ type, index, DEFAULT_PROPS, changeTheme }) => {
         >
           {Icon ? <Icon size={20} /> : type[0]}
         </div>
-        <div className="text-sm font-medium text-gray-700">{type}</div>
+        <div className="text-sm font-semibold text-gray-700">{type}</div>
       </div>
       <div className="text-gray-400">
         <HiOutlineMenu

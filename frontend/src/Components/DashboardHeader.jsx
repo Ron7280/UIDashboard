@@ -90,7 +90,7 @@ const DashboardHeader = ({
         {pages.length > 1 && (
           <Tooltip title="Remove this page" arrow placement="bottom">
             <button onClick={removePage}>
-              <IoRemoveCircle className={`text-red-500`} size={25} />
+              <IoRemoveCircle className={`text-[rgb(255,0,0)]`} size={25} />
             </button>
           </Tooltip>
         )}

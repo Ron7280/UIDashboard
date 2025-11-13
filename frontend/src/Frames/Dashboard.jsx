@@ -265,7 +265,7 @@ const Dashboard = ({
               <FaArrowDown size={35} className="animate-bounce" />
               <FiInbox size={40} />
             </div>
-            <div className="text-xl font-bold">{t("Dashboard.Drop")}</div>
+            <div className="text-xl font-semibold">{t("Dashboard.Drop")}</div>
           </div>
         )
       ) : (

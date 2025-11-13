@@ -210,7 +210,7 @@ const RightSide = ({
                 className={`flex items-center ${
                   changeTheme ? "text-lightTeal" : "text-mainColor"
                 } justify-center gap-2
-               text-lg font-bold mb-3 cursor-pointer`}
+               text-lg font-semibold mb-3 cursor-pointer`}
                 onClick={() => setHidePreview(!hidePreview)}
               >
                 {hidePreview ? t("RightSide.Preview") : t("RightSide.Show")}
@@ -232,7 +232,9 @@ const RightSide = ({
         ) : (
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
             <div
-              className={`${changeTheme ? "text-white" : ""} font-bold text-lg`}
+              className={`${
+                changeTheme ? "text-white" : ""
+              } font-semibold text-lg`}
             >
               {t("RightSide.Tip")}
             </div>
