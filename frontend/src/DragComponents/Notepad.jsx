@@ -45,11 +45,15 @@ const Notepad = ({
     onChange?.({ todos: updated });
   };
 
-  const handleDeleteNote = (textKey) => {
+  const handleDeleteNote = (textKey, value) => {
     setSave_ToNotepad((prev) =>
       prev.filter(
         (entry) =>
-          !(entry.NoteTitle === props.title && entry.textKey === textKey)
+          !(
+            entry.NoteTitle === props.title &&
+            entry.textKey === textKey &&
+            entry.value === value
+          )
       )
     );
   };
@@ -61,7 +65,7 @@ const Notepad = ({
         changeTheme ? "shadow-lightTeal" : "shadow-mainColor"
       }`}
     >
-      <div className="text-lg font-bold text-gray-700 text-center">
+      <div className="text-lg font-semibold text-center">
         {props.title || t("DragCompo.Notepad.Title")}
       </div>
 
@@ -70,24 +74,29 @@ const Notepad = ({
           {relatedNotes.length > 0 ? (
             <div className="flex flex-col gap-1 border-t pt-2">
               {relatedNotes.map((entry, idx) => (
-                <div key={idx} className="mb-2">
+                <div
+                  key={idx}
+                  className="flex items-center gap-1 mb-2 font-semibold"
+                >
+                  <button
+                    onClick={() => handleDeleteNote(entry.textKey, entry.value)}
+                    className="text-red-600 pr-2 hover:text-red-700"
+                  >
+                    <FaTrash size={14} />
+                  </button>
                   {typeof entry.value === "object" &&
                   entry.value.words &&
                   entry.value.sentence ? (
                     <>
-                      <button
-                        onClick={() => handleDeleteNote(entry.textKey)}
-                        className="text-red-600 pr-2 hover:text-red-700"
-                      >
-                        <FaTrash size={14} />
-                      </button>
                       <div>Words:</div>
                       <div>{entry.value.words.join(" , ")}</div>
                       <div>Sentence:</div>
                       <div>{entry.value.sentence}</div>
                     </>
                   ) : (
-                    <div>{entry.value}</div>
+                    <div>
+                      {entry.textKey} : {entry.value}
+                    </div>
                   )}
                 </div>
               ))}
@@ -113,7 +122,7 @@ const Notepad = ({
               value={newTodo}
               onChange={(e) => setNewTodo(e.target.value)}
               placeholder={t("DragCompo.Notepad.TodoPlaceholder")}
-              className="flex-1 border rounded-md px-2 py-1 outline-none"
+              className="flex-1 border rounded-md px-2 py-1 font-semibold outline-none"
             />
             <button
               onClick={handleAddTodo}

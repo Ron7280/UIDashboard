@@ -41,7 +41,7 @@ const PagesBar = ({
              cursor-pointer font-semibold flex items-center gap-1 ${
                activePage === index
                  ? `${
-                     changeTheme ? "bg-mainColor2 " : "bg-lightIndigo "
+                     changeTheme ? "bg-mainColor2 " : "bg-lightIndigo"
                    } text-white shadow-gray-900 shadow-inner`
                  : `${changeTheme ? "text-white" : "text-black"}`
              } ${index === 0 ? "rounded-ss-lg rounded-es-lg" : ""}`}
