@@ -255,6 +255,7 @@ const DEFAULT_PROPS = {
   },
   Linguistics: {
     title: "",
+    InteractWith: "",
     width: 600,
     height: 500,
     translateTo: "English",

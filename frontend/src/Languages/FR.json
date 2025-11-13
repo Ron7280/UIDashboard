@@ -194,7 +194,8 @@
     },
     "Linguistics_Prop":{
         "TranslateTo":"Traduire en",
-        "Select":"Sélectionnez une langue"
+        "Select":"Sélectionnez une langue",
+        "InteractWith":"Interagir Avec"
     },
     "Loader_Prop":{
         "Type":"Type"

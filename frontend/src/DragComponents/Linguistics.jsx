@@ -2,9 +2,10 @@ import React, { useContext, useState } from "react";
 import { API } from "../Api_Link";
 import Loader from "./Loader";
 import { US, ES, FR, DE, JP, IT, SY, KR } from "country-flag-icons/react/3x2";
-import { Change_Theme_context } from "../Contexts";
+import { Change_Theme_context, Save_To_Notepad_context } from "../Contexts";
 import { useTranslation } from "react-i18next";
 import Alert from "../Components/Alert";
+import { IoIosSave } from "react-icons/io";
 
 const Linguistics = ({ props }) => {
   const [language, setLanguage] = useState("");
@@ -16,6 +17,9 @@ const Linguistics = ({ props }) => {
   const [traslateLoading, setTraslateLoading] = useState(false);
   const [translated, setTranslated] = useState(false);
   const [changeTheme, setChangeTheme] = useContext(Change_Theme_context);
+  const [save_ToNotepad, setSave_ToNotepad] = useContext(
+    Save_To_Notepad_context
+  );
   const [genClicked, setGenClicked] = useState(false);
   const [traClicked, setTraClicked] = useState(false);
   const { t } = useTranslation();
@@ -220,6 +224,33 @@ const Linguistics = ({ props }) => {
             ) : (
               t("DragCompo.Linguistics.Translate")
             )}
+          </button>
+        ) : (
+          <></>
+        )}
+        {props.InteractWith ? (
+          <button
+            onClick={() =>
+              setSave_ToNotepad((prev) => [
+                ...prev,
+                {
+                  textKey: "Words & Sentence",
+                  value: (
+                    <div>
+                      <div>Words:</div>
+                      {words.join(" , ")}
+                      <br />
+                      <div>Sentence:</div>
+                      {sentence}
+                    </div>
+                  ),
+                  NoteTitle: props.InteractWith,
+                },
+              ])
+            }
+            className="bg-green-500 p-1 w-[70%] justify-center flex items-center gap-2 text-white font-semibold shadow-black shadow-md text-md rounded-lg"
+          >
+            <IoIosSave size={20} /> Save to Notepad
           </button>
         ) : (
           <></>

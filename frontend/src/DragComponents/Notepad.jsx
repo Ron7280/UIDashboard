@@ -81,7 +81,7 @@ const Notepad = ({
                     >
                       <FaTrash size={14} />
                     </button>
-                    {entry.textKey}: {entry.value}
+                    {entry.textKey} <br /> {entry.value}
                   </span>
                 </div>
               ))}
