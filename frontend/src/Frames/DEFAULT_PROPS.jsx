@@ -220,7 +220,7 @@ const DEFAULT_PROPS = {
     type: "text",
     content: "",
     todos: [],
-    title: "My Notes",
+    title: "",
     width: 300,
     height: 250,
     icon: PiNotepadFill,

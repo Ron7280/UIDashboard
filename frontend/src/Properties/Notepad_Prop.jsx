@@ -3,11 +3,13 @@ import TitleSetter from "../Components/TitleSetter";
 import { BiSolidNotepad } from "react-icons/bi";
 import { MdOutlineEditNote } from "react-icons/md";
 import { IoMdDownload } from "react-icons/io";
-import { Change_Theme_context } from "../Contexts";
+import { Change_Theme_context, Save_To_Notepad_context } from "../Contexts";
 import { useTranslation } from "react-i18next";
 
 const Notepad_Prop = ({ selectedComponent, handlePropChange }) => {
   const [changeTheme, setChangeTheme] = useContext(Change_Theme_context);
+  const [save_ToNotepad] = useContext(Save_To_Notepad_context);
+
   const { t } = useTranslation();
 
   const handleDownloadTxt = () => {
@@ -23,7 +25,17 @@ const Notepad_Prop = ({ selectedComponent, handlePropChange }) => {
         )
         .join("\n");
     } else {
-      fileContent = content || "";
+      const relatedNotes = save_ToNotepad.filter(
+        (entry) => entry.NoteTitle === title
+      );
+
+      if (relatedNotes.length > 0) {
+        fileContent = relatedNotes
+          .map((entry) => `${entry.textKey}: ${entry.value}`)
+          .join("\n");
+      } else {
+        fileContent = content || "";
+      }
     }
 
     const blob = new Blob([fileContent], { type: "text/plain;charset=utf-8" });

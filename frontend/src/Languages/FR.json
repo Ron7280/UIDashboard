@@ -227,6 +227,10 @@
     "Speedometer_Prop":{
         "Select":"Sélectionner"
     },
+    "Sort_Prop":{
+        "InteractWith":"Interagir Avec",
+        "Select":"Sélectionnez un composant . . ."  
+    },
     "Table_Prop":{
         "Columns":"Colonnes",
         "Title":"Titre",

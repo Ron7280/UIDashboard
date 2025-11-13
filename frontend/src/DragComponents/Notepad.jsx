@@ -7,7 +7,6 @@ const Notepad = ({
   type = "text",
   content = "",
   todos = [],
-  title,
   onChange,
   props,
 }) => {
@@ -15,22 +14,15 @@ const Notepad = ({
   const [items, setItems] = useState(todos);
   const [newTodo, setNewTodo] = useState("");
   const [changeTheme] = useContext(Change_Theme_context);
-  const [save_ToNotepad] = useContext(Save_To_Notepad_context);
+  const [save_ToNotepad, setSave_ToNotepad] = useContext(
+    Save_To_Notepad_context
+  );
   const { t } = useTranslation();
 
-  useEffect(() => {
-    if (save_ToNotepad.length > 0) {
-      const savedEntries = save_ToNotepad.filter(
-        (entry) => entry.NoteTitle === title
-      );
-      if (savedEntries.length > 0) {
-        const savedText = savedEntries
-          .map((entry) => `${entry.textKey} : ${entry.value}`)
-          .join("\n");
-        setText(savedText);
-      }
-    }
-  }, [save_ToNotepad, title]);
+  // Filter the notes that belong to this specific notepad
+  const relatedNotes = save_ToNotepad.filter(
+    (entry) => entry.NoteTitle === props.title
+  );
 
   const handleAddTodo = () => {
     if (!newTodo.trim()) return;
@@ -53,6 +45,15 @@ const Notepad = ({
     onChange?.({ todos: updated });
   };
 
+  const handleDeleteNote = (textKey) => {
+    setSave_ToNotepad((prev) =>
+      prev.filter(
+        (entry) =>
+          !(entry.NoteTitle === props.title && entry.textKey === textKey)
+      )
+    );
+  };
+
   return (
     <div
       title={props.title}
@@ -60,18 +61,43 @@ const Notepad = ({
         changeTheme ? "shadow-lightTeal" : "shadow-mainColor"
       }`}
     >
-      <div className="text-lg font-bold text-gray-700 text-center">{title}</div>
+      <div className="text-lg font-bold text-gray-700 text-center">
+        {props.title || t("DragCompo.Notepad.Title")}
+      </div>
 
       {type === "text" && (
-        <textarea
-          className="border rounded-md p-2 flex-1 font-semibold resize-none outline-none"
-          value={text}
-          onChange={(e) => {
-            setText(e.target.value);
-            onChange?.({ content: e.target.value });
-          }}
-          placeholder={t("DragCompo.Notepad.Placeholder")}
-        />
+        <div className="flex flex-col flex-1 overflow-y-scroll [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+          {relatedNotes.length > 0 ? (
+            <div className="flex flex-col gap-1 border-t pt-2">
+              {relatedNotes.map((entry, idx) => (
+                <div
+                  key={idx}
+                  className="flex justify-between items-center border-b py-1 text-sm font-semibold"
+                >
+                  <span>
+                    <button
+                      onClick={() => handleDeleteNote(entry.textKey)}
+                      className="text-red-600 pr-2 hover:text-red-700"
+                    >
+                      <FaTrash size={14} />
+                    </button>
+                    {entry.textKey}: {entry.value}
+                  </span>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <textarea
+              className="border rounded-md p-2 flex-1 font-semibold resize-none outline-none mb-2"
+              value={text}
+              onChange={(e) => {
+                setText(e.target.value);
+                onChange?.({ content: e.target.value });
+              }}
+              placeholder={t("DragCompo.Notepad.Placeholder")}
+            />
+          )}
+        </div>
       )}
 
       {type === "todo" && (

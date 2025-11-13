@@ -22,7 +22,7 @@ const Sort_Prop = ({ components, selectedComponent, handlePropChange }) => {
         }`}
       >
         <AiFillInteraction size={25} />
-        {t("EditProps.Video_Prop.InteractWith")}
+        {t("EditProps.Sort_Prop.InteractWith")}
       </label>
 
       <select
@@ -35,7 +35,7 @@ const Sort_Prop = ({ components, selectedComponent, handlePropChange }) => {
           handlePropChange("InteractWith", targetComp?.props?.title || "");
         }}
       >
-        <option value="">{t("EditProps.Video_Prop.Select")}</option>
+        <option value="">{t("EditProps.Sort_Prop.Select")}</option>
         {components
           .filter(
             (compo) =>

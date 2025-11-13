@@ -227,6 +227,10 @@
     "Speedometer_Prop":{
         "Select":"اختار"
     },
+    "Sort_Prop":{
+        "InteractWith":"التفاعل مع",
+        "Select":"اختار مكون . . ."
+    },
     "Table_Prop":{
         "Columns":"اعمدة",
         "Title":"العنوان",
