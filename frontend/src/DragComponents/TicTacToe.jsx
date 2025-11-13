@@ -88,7 +88,7 @@ const TicTacToe = ({ props }) => {
      w-full h-full p-3 rounded-xl shadow-md
      ${changeTheme ? " shadow-lightTeal bg-white" : " shadow-mainColor"}`}
     >
-      <div className={`text-lg font-bold text-gray-700`}>
+      <div className={`text-lg font-semibold text-gray-700`}>
         {winner
           ? `${t("DragCompo.TicTacToe.Winner")} : ${winner}`
           : `${t("DragCompo.TicTacToe.NextPlayer")} : ${xNext ? "X" : "O"}`}
@@ -105,19 +105,19 @@ const TicTacToe = ({ props }) => {
           <button
             key={idx}
             onClick={() => handleClick(idx)}
-            className="bg-indigo-200  flex items-center justify-center text-2xl font-bold border rounded"
+            className="bg-indigo-200  flex items-center justify-center text-2xl font-semibold border rounded"
           >
             {cell}
           </button>
         ))}
       </div>
-      <div className="flex gap-5 items-center justify-center font-semibold">
+      <div className="flex gap-5 items-center  justify-center font-semibold">
         <button
           onClick={() => {
             setBoard(Array(9).fill(null));
             setXNext(true);
           }}
-          className={`mt-2 px-3 py-1 shadow-md shadow-black text-white rounded 
+          className={`mt-2 px-3 py-1  shadow-md shadow-black text-white rounded 
          ${changeTheme ? "  bg-mainColor2" : " bg-mainColor"} `}
         >
           {t("DragCompo.TicTacToe.Restart")}
