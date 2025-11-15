@@ -34,7 +34,6 @@ const Toggle = ({ props, handlePropChange }) => {
     if (props.actionType === "changeTheme") {
       setChangeTheme(newValue);
     }
-
     if (props.actionType === "changeLanguage") {
       setChangeLanguage({
         status: !props.status,
@@ -48,7 +47,7 @@ const Toggle = ({ props, handlePropChange }) => {
   };
 
   return (
-    <label
+    <div
       title={props.title}
       className="flex cursor-pointer select-none items-center"
     >
@@ -76,7 +75,7 @@ const Toggle = ({ props, handlePropChange }) => {
           }`}
         ></div>
       </div>
-    </label>
+    </div>
   );
 };
 

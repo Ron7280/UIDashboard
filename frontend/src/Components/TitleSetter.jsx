@@ -11,14 +11,14 @@ const TitleSetter = ({ compName, handlePropChange, defaultValue = "" }) => {
   return (
     <div className="flex flex-col gap-2 mt-3">
       <div className="flex flex-col  gap-2">
-        <label
+        <div
           className={`text-lg flex items-center gap-2 font-bold ${
             changeTheme ? "text-white" : ""
           }`}
         >
           <PiNotePencilFill size={25} />
           {t("TitleSetter.Title")} :
-        </label>
+        </div>
         <input
           placeholder={t("TitleSetter.Placeholder")}
           value={title}

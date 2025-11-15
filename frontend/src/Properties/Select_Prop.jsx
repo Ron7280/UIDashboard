@@ -19,14 +19,14 @@ const Select_Prop = ({
         handlePropChange={handlePropChange}
         defaultValue={selectedComponent.props?.title}
       />
-      <label
+      <div
         className={`${
           changeTheme ? "text-white" : ""
         } text-lg flex items-center gap-2 pt-3 font-bold`}
       >
         <BsMenuDown size={25} />
         {t("EditProps.Select_Prop.Options")}
-      </label>
+      </div>
       <div className="space-y-1">
         {(selectedComponent.props.options ?? DEFAULT_PROPS.Select.options).map(
           (opt, i) => (

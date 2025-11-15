@@ -15,14 +15,14 @@ const ProgressBar_Prop = ({ selectedComponent, handlePropChange }) => {
         handlePropChange={handlePropChange}
         defaultValue={selectedComponent.props?.title}
       />
-      <label
+      <div
         className={`text-lg flex items-center gap-2 pt-3 font-bold ${
           changeTheme ? "text-white" : ""
         }`}
       >
         <FaBarsProgress size={25} />
         {t("EditProps.ProgressBar_Prop.Value")}
-      </label>
+      </div>
       <input
         type="number"
         value={selectedComponent.props?.value ?? 0}

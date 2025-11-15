@@ -19,7 +19,6 @@ const Notepad = ({
   );
   const { t } = useTranslation();
 
-  // Filter the notes that belong to this specific notepad
   const relatedNotes = save_ToNotepad.filter(
     (entry) => entry.NoteTitle === props.title
   );
@@ -139,7 +138,7 @@ const Notepad = ({
               key={idx}
               className="flex items-center justify-between border-b py-1"
             >
-              <label className="flex items-center gap-2">
+              <div className="flex items-center gap-2">
                 <input
                   type="checkbox"
                   checked={todo.done}
@@ -151,7 +150,7 @@ const Notepad = ({
                 >
                   {todo.text}
                 </div>
-              </label>
+              </div>
               <button
                 onClick={() => handleDelete(idx)}
                 className="text-red-600 hover:text-red-700"

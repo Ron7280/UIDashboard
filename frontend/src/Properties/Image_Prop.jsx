@@ -16,28 +16,28 @@ const Image_Prop = ({ selectedComponent, handlePropChange }) => {
         handlePropChange={handlePropChange}
         defaultValue={selectedComponent.props?.title}
       />
-      <label
+      <div
         className={`text-lg flex items-center gap-2 font-bold ${
           changeTheme ? "text-white" : ""
         }`}
       >
         <IoMdLink size={25} />
         {t("EditProps.Image_Prop.Path")}
-      </label>
+      </div>
       <input
         value={selectedComponent.props?.src || ""}
         onChange={(e) => handlePropChange("src", e.target.value)}
         className="w-full border rounded-md px-3 font-semibold py-2 outline-none"
       />
 
-      <label
+      <div
         className={`text-lg font-bold mt-4 flex items-center gap-2 ${
           changeTheme ? "text-white" : ""
         }`}
       >
         <FaImage size={25} />
         {t("EditProps.Image_Prop.Choose")}
-      </label>
+      </div>
       <div className="relative w-full ">
         <input
           type="file"

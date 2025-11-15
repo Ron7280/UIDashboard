@@ -31,7 +31,6 @@ const Notepad_Prop = ({ selectedComponent, handlePropChange }) => {
       if (relatedNotes.length > 0) {
         fileContent = relatedNotes
           .map((entry) => {
-            // if it's an object with words & sentence
             if (
               entry.value &&
               typeof entry.value === "object" &&

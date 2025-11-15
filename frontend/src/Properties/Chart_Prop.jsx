@@ -40,14 +40,14 @@ const Chart_Prop = ({ selectedComponent, handlePropChange, selectedIndex }) => {
       />
 
       <div>
-        <label
+        <div
           className={`${
             changeTheme ? "text-white" : ""
           } text-lg flex items-center gap-2 pb-3 font-bold`}
         >
           <FaChartPie size={25} />
           {t("EditProps.Chat_Props.Type")}
-        </label>
+        </div>
         <select
           value={selectedComponent.props?.type || "bar"}
           onChange={(e) => handlePropChange("type", e.target.value)}
@@ -63,13 +63,13 @@ const Chart_Prop = ({ selectedComponent, handlePropChange, selectedIndex }) => {
       </div>
 
       <div>
-        <label
+        <div
           className={`${
             changeTheme ? "text-white" : ""
           } text-lg flex items-center gap-2 pb-3 font-bold`}
         >
           <IoIosLink size={25} /> {t("EditProps.Chat_Props.Link")}
-        </label>
+        </div>
         <input
           type="text"
           value={tempDataSource}
@@ -90,14 +90,14 @@ const Chart_Prop = ({ selectedComponent, handlePropChange, selectedIndex }) => {
       {chartKeys.length > 0 && (
         <>
           <div>
-            <label
+            <div
               className={`${
                 changeTheme ? "text-white" : ""
               } text-lg flex items-center gap-2 pb-3 font-bold`}
             >
               <TbAxisX size={25} />
               {t("EditProps.Chat_Props.X_Label")}
-            </label>
+            </div>
             <select
               value={selectedComponent.props.labelKey || ""}
               onChange={(e) => handlePropChange("labelKey", e.target.value)}
@@ -113,14 +113,14 @@ const Chart_Prop = ({ selectedComponent, handlePropChange, selectedIndex }) => {
           </div>
 
           <div>
-            <label
+            <div
               className={`${
                 changeTheme ? "text-white" : ""
               } text-lg flex items-center gap-2 pb-3 font-bold`}
             >
               <TbAxisY size={25} />
               {t("EditProps.Chat_Props.Y_Label")}
-            </label>
+            </div>
             <select
               multiple
               value={selectedComponent.props.valueKeys || []}

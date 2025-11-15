@@ -39,13 +39,13 @@ const Speedometer_Prop = ({ selectedComponent, handlePropChange }) => {
 
   return (
     <div className="flex flex-col gap-4">
-      <label
+      <div
         className={`flex items-center gap-2 font-bold text-lg ${
           changeTheme ? "text-white" : ""
         }`}
       >
         <IoSpeedometer size={25} /> {t("EditProps.Speedometer_Prop.Select")}
-      </label>
+      </div>
       <select
         value={selectedComponent.props?.speed || "speed"}
         onChange={(e) => handlePropChange("speed", e.target.value)}

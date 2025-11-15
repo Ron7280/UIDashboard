@@ -16,14 +16,14 @@ const Sort_Prop = ({ components, selectedComponent, handlePropChange }) => {
         defaultValue={selectedComponent.props?.title}
       />
 
-      <label
+      <div
         className={`text-lg flex items-center gap-2 font-bold ${
           changeTheme ? "text-white" : ""
         }`}
       >
         <AiFillInteraction size={25} />
         {t("EditProps.Sort_Prop.InteractWith")}
-      </label>
+      </div>
 
       <select
         className="border rounded-md px-3 py-2 font-semibold w-full outline-none"

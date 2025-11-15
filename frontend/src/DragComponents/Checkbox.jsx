@@ -25,7 +25,7 @@ const Checkbox = ({ props, handlePropChange = () => {} }) => {
   };
 
   return (
-    <label
+    <div
       title={props.title}
       className="inline-flex justify-center items-center gap-2 w-full h-full"
     >
@@ -40,7 +40,7 @@ const Checkbox = ({ props, handlePropChange = () => {} }) => {
           ? t("DragCompo.Checkbox.Checked")
           : t("DragCompo.Checkbox.NotChecked")}
       </div>
-    </label>
+    </div>
   );
 };
 

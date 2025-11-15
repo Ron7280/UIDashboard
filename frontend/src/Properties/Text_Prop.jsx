@@ -26,28 +26,28 @@ const Text_Prop = ({ selectedComponent, handlePropChange }) => {
         defaultValue={selectedComponent.props?.title}
       />
 
-      <label
+      <div
         className={`text-lg flex items-center gap-2 font-bold ${
           changeTheme ? "text-white" : ""
         }`}
       >
         <CiText size={25} />
         {t("EditProps.Text_Prop.Text")}
-      </label>
+      </div>
       <input
         value={selectedComponent.props?.text || ""}
         onChange={(e) => handlePropChange("text", e.target.value)}
         className="w-full border rounded-md px-3 py-2 font-semibold outline-none"
       />
 
-      <label
+      <div
         className={`text-lg flex items-center gap-2 font-bold ${
           changeTheme ? "text-white" : ""
         }`}
       >
         <IoIosColorPalette size={25} />
         {t("EditProps.Text_Prop.Color")}
-      </label>
+      </div>
       <input
         type="color"
         value={selectedComponent.props?.color || "#3B82F6"}
@@ -55,14 +55,14 @@ const Text_Prop = ({ selectedComponent, handlePropChange }) => {
         className="w-[50%] h-14 cursor-pointer outline-none"
       />
 
-      <label
+      <div
         className={`text-lg flex items-center gap-2 font-bold ${
           changeTheme ? "text-white" : ""
         }`}
       >
         <BiSolidPurchaseTag className="rotate-90" size={25} />
         {t("EditProps.Text_Prop.SetAs")}
-      </label>
+      </div>
       <select
         value={selectedComponent.props?.setAs || ""}
         onChange={(e) => {

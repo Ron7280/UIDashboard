@@ -17,14 +17,14 @@ const Loader_Prop = ({ selectedComponent, handlePropChange }) => {
         handlePropChange={handlePropChange}
         defaultValue={selectedComponent.props?.title}
       />
-      <label
+      <div
         className={`text-lg flex items-center gap-4 font-bold ${
           changeTheme ? "text-white" : ""
         }`}
       >
         <Loader type={loaderType} size={25} />
         {t("EditProps.Loader_Prop.Type")}
-      </label>
+      </div>
       <select
         value={selectedComponent.props?.type || "spinner"}
         onChange={(e) => {
