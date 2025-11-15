@@ -122,7 +122,6 @@ const DEFAULT_PROPS = {
   RatingStars: { rating: 0, title: "", width: 200, height: 40, icon: FaStar },
   Slider: { value: 50, title: "", width: 230, height: 40, icon: RxSlider },
   Card: {
-    title: "Card Title",
     title: "",
     content: "",
     width: 250,
@@ -220,7 +219,6 @@ const DEFAULT_PROPS = {
     type: "text",
     content: "",
     todos: [],
-    title: "",
     width: 300,
     height: 250,
     icon: PiNotepadFill,
@@ -266,13 +264,6 @@ const DEFAULT_PROPS = {
     InteractWith: "",
     width: 1000,
     height: 620,
-    icon: RiBarChartGroupedLine,
-  },
-  HeatMap: {
-    title: "",
-    InteractWith: "",
-    // width: 1000,
-    // height: 620,
     icon: RiBarChartGroupedLine,
   },
 };

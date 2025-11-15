@@ -1,4 +1,4 @@
-const allowedOrigins = ["http://192.168.0.107:5173"];
-const IP = "192.168.0.107";
+const allowedOrigins = ["https://localhost:5173"];
+const IP = "localhost";
 
 module.exports = { allowedOrigins, IP };

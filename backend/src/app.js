@@ -10,7 +10,7 @@ const { allowedOrigins } = require("./API");
 
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: allowedOrigins,
     credentials: true,
   })
 );
@@ -24,16 +24,15 @@ const csrfProtection = csrf({
   value: (req) => req.body.csrfToken,
 });
 
-// CSRF token route
 app.get("/auth/csrf_token", csrfProtection, async (req, res) => {
   const token = req.csrfToken();
   res.json({ csrfToken: token });
 });
 
-// **Your main root route here**
 app.get("/", (req, res) => {
   res.send("Welcome to UI dashboard project!");
 });
+
 app.use("/dashboard", require("./Routes/Dashboard.js"));
 
 module.exports = app;
