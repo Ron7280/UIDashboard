@@ -5,30 +5,39 @@ import { MdOutlineEditNote } from "react-icons/md";
 import { IoMdDownload } from "react-icons/io";
 import { Change_Theme_context, Save_To_Notepad_context } from "../Contexts";
 import { useTranslation } from "react-i18next";
+import Alert from "../Components/Alert";
 
 const Notepad_Prop = ({ selectedComponent, handlePropChange }) => {
   const [changeTheme, setChangeTheme] = useContext(Change_Theme_context);
   const [save_ToNotepad] = useContext(Save_To_Notepad_context);
   const { t } = useTranslation();
 
+  const { notifyS, notifyE, notifyW, notifyI } = Alert({ changeTheme });
+
   const handleDownloadTxt = () => {
     const { type, content, todos, title } = selectedComponent.props;
+
+    const relatedNotes = save_ToNotepad?.filter(
+      (entry) => entry.NoteTitle === title
+    );
+    const isEmpty =
+      (!content || content.trim() === "") &&
+      (!todos || todos.length === 0) &&
+      (!relatedNotes || relatedNotes.length === 0);
+
+    if (isEmpty) {
+      notifyW(t("EditProps.Notepad_Prop.NoteEmpty"));
+      return;
+    }
 
     let fileContent = "";
 
     if (type === "todo") {
       fileContent = todos
-        ?.map(
-          (todo, index) =>
-            `${index + 1}. ${todo.text} [${todo.done ? "✓" : "✗"}]`
-        )
+        ?.map((todo, index) => `${index + 1}- ${todo.text} `)
         .join("\n");
     } else {
-      const relatedNotes = save_ToNotepad.filter(
-        (entry) => entry.NoteTitle === title
-      );
-
-      if (relatedNotes.length > 0) {
+      if (relatedNotes && relatedNotes.length > 0) {
         fileContent = relatedNotes
           .map((entry) => {
             if (
@@ -41,7 +50,6 @@ const Notepad_Prop = ({ selectedComponent, handlePropChange }) => {
                 entry.value.sentence
               }`;
             }
-
             return `${entry.textKey} : ${entry.value}`;
           })
           .join("\n\n");

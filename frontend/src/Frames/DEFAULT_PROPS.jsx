@@ -268,6 +268,13 @@ const DEFAULT_PROPS = {
     height: 620,
     icon: RiBarChartGroupedLine,
   },
+  HeatMap: {
+    title: "",
+    InteractWith: "",
+    // width: 1000,
+    // height: 620,
+    icon: RiBarChartGroupedLine,
+  },
 };
 
 export default DEFAULT_PROPS;

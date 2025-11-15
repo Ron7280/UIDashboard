@@ -211,7 +211,8 @@
         "List":"Liste de Tâches",
         "Title":"Titre",
         "Placeholder":"Entrez le titre du bloc-notes . . .",
-        "Download": "Télécharger"
+        "Download": "Télécharger",
+        "NoteEmpty": "La note est vide"
     },
     "ProgressBar_Prop":{
         "Value":"Valeur"

@@ -75,7 +75,7 @@ const Notepad = ({
               {relatedNotes.map((entry, idx) => (
                 <div
                   key={idx}
-                  className="flex items-center gap-1 mb-2 font-semibold"
+                  className="flex flex-col  gap-1 mb-2 font-semibold"
                 >
                   <button
                     onClick={() => handleDeleteNote(entry.textKey, entry.value)}

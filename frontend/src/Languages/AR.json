@@ -211,7 +211,8 @@
         "List":"قائمة مهام",
         "Title":"عنوان",
         "Placeholder":"ادخل عنوان الملاحظة",
-        "Download":"تنزيل"
+        "Download":"تنزيل",
+        "NoteEmpty": "الملاحظة فارغة"
     },
     "ProgressBar_Prop":{
         "Value":"القيمة"

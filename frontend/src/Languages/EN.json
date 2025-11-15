@@ -211,7 +211,8 @@
         "List":"To-Do List",
         "Title":"Title",
         "Placeholder":"Enter notepad title . . .",
-        "Download":"Download"
+        "Download":"Download",
+        "NoteEmpty":"Note is empty"
     },
     "ProgressBar_Prop":{
         "Value":"Value"

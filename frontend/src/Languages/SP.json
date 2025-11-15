@@ -211,7 +211,8 @@
         "List":"Lista de Tareas",
         "Title":"Título",
         "Placeholder":"Ingresa título de nota . . .",
-        "Download": "Descargar"
+        "Download": "Descargar",
+        "NoteEmpty": "La nota está vacía"
     },
     "ProgressBar_Prop":{
         "Value":"Valor"
