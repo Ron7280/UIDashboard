@@ -16,6 +16,7 @@ import { FaUser } from "react-icons/fa";
 import { FaRegAddressCard } from "react-icons/fa";
 import { IoIosLogOut } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../AuthContext";
 
 const DashboardHeader = ({
   changeTheme,
@@ -33,6 +34,7 @@ const DashboardHeader = ({
   componentsLength,
 }) => {
   const { t } = useTranslation();
+  const { logout } = useAuth();
   const [showUserPopup, setShowUserPopup] = useState();
   const navigate = useNavigate();
   const Username = localStorage.getItem("username");
@@ -45,6 +47,9 @@ const DashboardHeader = ({
     { title: "FR", flag: FR },
   ];
 
+  const handleLogOut = () => {
+    logout();
+  };
   return (
     <div
       className={`flex items-center h-[5%] justify-between ${
@@ -81,7 +86,7 @@ const DashboardHeader = ({
                 <button
                   className="flex items-center gap-2 justify-center w-full bg-red-500
                  rounded-lg text-white font-semibold p-1"
-                  onClick={() => navigate("/")}
+                  onClick={handleLogOut}
                 >
                   Log Out <IoIosLogOut size={20} />
                 </button>
