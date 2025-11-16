@@ -7,6 +7,7 @@ import { Change_Theme_context } from "../Contexts";
 import { IoIosLogIn } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
 import { BiSolidDashboard } from "react-icons/bi";
+import { useAuth } from "../AuthContext";
 
 const Login = () => {
   const [password, setPassword] = useState("");
@@ -17,6 +18,7 @@ const Login = () => {
   const [changeTheme, setChangeTheme] = useContext(Change_Theme_context);
   const { notifyS, notifyE, notifyW, notifyI } = Alert({ changeTheme });
   const navigate = useNavigate();
+  const { login } = useAuth();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -29,12 +31,11 @@ const Login = () => {
       notifyW("Password is too short");
       return;
     }
-
+    const token = "user-token-from-api";
     localStorage.setItem("username", username);
     localStorage.setItem("fname", fname);
     localStorage.setItem("lname", lname);
-
-    navigate("/dashboard");
+    login(token);
     notifyS("Logged in successfully!");
   };
 

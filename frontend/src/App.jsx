@@ -19,6 +19,9 @@ import {
   Video_Progress_context,
 } from "./Contexts";
 import Login from "./Frames/Login";
+import { AuthProvider } from "./AuthContext";
+import PublicRoute from "./PublicRoute";
+import PrivateRoute from "./PrivateRoute";
 
 function App() {
   const [ask_AI, setAsk_AI] = useState({ active: false, targetTitle: "" });
@@ -56,59 +59,66 @@ function App() {
   });
 
   return (
-    <DndProvider backend={HTML5Backend}>
-      <Change_Theme_context.Provider value={[changeTheme, setChangeTheme]}>
-        <Ask_AI_context.Provider value={[ask_AI, setAsk_AI]}>
-          <Check_Box_context.Provider value={[check_Box, setCheck_Box]}>
-            <Toggle_context.Provider value={[toggle, setToggle]}>
-              <Chart_Trimm_context.Provider
-                value={[chart_Trimm, setChart_Trimm]}
-              >
-                <Change_Rate_context.Provider
-                  value={[change_Rate, setChange_Rate]}
+    <AuthProvider>
+      <DndProvider backend={HTML5Backend}>
+        <Change_Theme_context.Provider value={[changeTheme, setChangeTheme]}>
+          <Ask_AI_context.Provider value={[ask_AI, setAsk_AI]}>
+            <Check_Box_context.Provider value={[check_Box, setCheck_Box]}>
+              <Toggle_context.Provider value={[toggle, setToggle]}>
+                <Chart_Trimm_context.Provider
+                  value={[chart_Trimm, setChart_Trimm]}
                 >
-                  <Change_Image_context.Provider
-                    value={[change_Image, setChange_Image]}
+                  <Change_Rate_context.Provider
+                    value={[change_Rate, setChange_Rate]}
                   >
-                    <Video_Progress_context.Provider
-                      value={[videoProgress, setVideoProgress]}
+                    <Change_Image_context.Provider
+                      value={[change_Image, setChange_Image]}
                     >
-                      <Video_Interact_context.Provider
-                        value={[videoInteract, setVideoInteract]}
+                      <Video_Progress_context.Provider
+                        value={[videoProgress, setVideoProgress]}
                       >
-                        <Change_Language_context.Provider
-                          value={[changeLanguage, setChangeLanguage]}
+                        <Video_Interact_context.Provider
+                          value={[videoInteract, setVideoInteract]}
                         >
-                          <Stop_Timer_context.Provider
-                            value={[stopTimer, setStopTimer]}
+                          <Change_Language_context.Provider
+                            value={[changeLanguage, setChangeLanguage]}
                           >
-                            <Set_MainName_context.Provider
-                              value={[set_MainName, setSet_MainName]}
+                            <Stop_Timer_context.Provider
+                              value={[stopTimer, setStopTimer]}
                             >
-                              <Save_To_Notepad_context.Provider
-                                value={[save_ToNotepad, setSave_ToNotepad]}
+                              <Set_MainName_context.Provider
+                                value={[set_MainName, setSet_MainName]}
                               >
-                                <Routes>
-                                  <Route path="/" element={<Login />} />
-                                  <Route
-                                    path="/dashboard"
-                                    element={<MainDashboard />}
-                                  />
-                                </Routes>
-                              </Save_To_Notepad_context.Provider>
-                            </Set_MainName_context.Provider>
-                          </Stop_Timer_context.Provider>
-                        </Change_Language_context.Provider>
-                      </Video_Interact_context.Provider>
-                    </Video_Progress_context.Provider>
-                  </Change_Image_context.Provider>
-                </Change_Rate_context.Provider>
-              </Chart_Trimm_context.Provider>
-            </Toggle_context.Provider>
-          </Check_Box_context.Provider>
-        </Ask_AI_context.Provider>
-      </Change_Theme_context.Provider>
-    </DndProvider>
+                                <Save_To_Notepad_context.Provider
+                                  value={[save_ToNotepad, setSave_ToNotepad]}
+                                >
+                                  <Routes>
+                                    <Route element={<PublicRoute />}>
+                                      <Route path="/" element={<Login />} />
+                                    </Route>
+
+                                    <Route element={<PrivateRoute />}>
+                                      <Route
+                                        path="/dashboard"
+                                        element={<MainDashboard />}
+                                      />
+                                    </Route>
+                                  </Routes>
+                                </Save_To_Notepad_context.Provider>
+                              </Set_MainName_context.Provider>
+                            </Stop_Timer_context.Provider>
+                          </Change_Language_context.Provider>
+                        </Video_Interact_context.Provider>
+                      </Video_Progress_context.Provider>
+                    </Change_Image_context.Provider>
+                  </Change_Rate_context.Provider>
+                </Chart_Trimm_context.Provider>
+              </Toggle_context.Provider>
+            </Check_Box_context.Provider>
+          </Ask_AI_context.Provider>
+        </Change_Theme_context.Provider>
+      </DndProvider>
+    </AuthProvider>
   );
 }
 

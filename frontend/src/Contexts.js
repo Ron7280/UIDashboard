@@ -11,4 +11,5 @@ export const Ask_AI_context = createContext(),
   Stop_Timer_context = createContext(),
   Set_MainName_context = createContext(),
   Save_To_Notepad_context = createContext(),
+  AuthContext = createContext(),
   Chart_Trimm_context = createContext();
