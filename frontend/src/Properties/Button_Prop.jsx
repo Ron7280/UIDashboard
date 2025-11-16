@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useMemo } from "react";
 import TitleSetter from "../Components/TitleSetter";
 import { CiText } from "react-icons/ci";
 import { IoIosColorPalette, IoIosNotifications } from "react-icons/io";
@@ -18,38 +18,41 @@ const Button_Prop = ({ components, selectedComponent, handlePropChange }) => {
 
   const isRatingTarget = targetComp?.type === "RatingStars";
 
-  const selectoptions = [
-    {
-      type: "Chart",
-      key_value: ["moreData"],
-      text: [`${t("EditProps.Button_Props.MoreData")}`],
-    },
-    {
-      type: "Toggle",
-      key_value: ["Toggle"],
-      text: [`${t("EditProps.Button_Props.Toggle")}`],
-    },
-    {
-      type: "AI",
-      key_value: ["Ask"],
-      text: [`${t("EditProps.Button_Props.Ask")}`],
-    },
-    {
-      type: "Checkbox",
-      key_value: ["Check"],
-      text: [`${t("EditProps.Button_Props.Check")}`],
-    },
-    {
-      type: "RatingStars",
-      key_value: ["ChangeRate"],
-      text: [`${t("EditProps.Button_Props.NewRate")}`],
-    },
-    {
-      type: "Image",
-      key_value: ["Image"],
-      text: [`${t("EditProps.Button_Props.ChangeImage")}`],
-    },
-  ];
+  const selectoptions = useMemo(
+    () => [
+      {
+        type: "Chart",
+        key_value: ["moreData"],
+        text: [`${t("EditProps.Button_Props.MoreData")}`],
+      },
+      {
+        type: "Toggle",
+        key_value: ["Toggle"],
+        text: [`${t("EditProps.Button_Props.Toggle")}`],
+      },
+      {
+        type: "AI",
+        key_value: ["Ask"],
+        text: [`${t("EditProps.Button_Props.Ask")}`],
+      },
+      {
+        type: "Checkbox",
+        key_value: ["Check"],
+        text: [`${t("EditProps.Button_Props.Check")}`],
+      },
+      {
+        type: "RatingStars",
+        key_value: ["ChangeRate"],
+        text: [`${t("EditProps.Button_Props.NewRate")}`],
+      },
+      {
+        type: "Image",
+        key_value: ["Image"],
+        text: [`${t("EditProps.Button_Props.ChangeImage")}`],
+      },
+    ],
+    [t]
+  );
 
   return (
     <div className="flex flex-col gap-4">

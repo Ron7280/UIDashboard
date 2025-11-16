@@ -11,7 +11,7 @@ import { US, ES, FR, SY } from "country-flag-icons/react/3x2";
 import { BiSolidDashboard } from "react-icons/bi";
 import { useTranslation } from "react-i18next";
 import { FaCircleUser } from "react-icons/fa6";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { FaUser } from "react-icons/fa";
 import { FaRegAddressCard } from "react-icons/fa";
 import { IoIosLogOut } from "react-icons/io";
@@ -39,12 +39,16 @@ const DashboardHeader = ({
   const Username = localStorage.getItem("username");
   const Fname = localStorage.getItem("fname");
   const Lname = localStorage.getItem("lname");
-  const LanguagesOptions = [
-    { title: "EN", flag: US },
-    { title: "AR", flag: SY },
-    { title: "SP", flag: ES },
-    { title: "FR", flag: FR },
-  ];
+
+  const LanguagesOptions = useMemo(
+    () => [
+      { title: "EN", flag: US },
+      { title: "AR", flag: SY },
+      { title: "SP", flag: ES },
+      { title: "FR", flag: FR },
+    ],
+    []
+  );
 
   const handleLogOut = () => {
     logout();

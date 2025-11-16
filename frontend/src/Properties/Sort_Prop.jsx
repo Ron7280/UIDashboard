@@ -6,8 +6,8 @@ import { Change_Theme_context } from "../Contexts";
 
 const Sort_Prop = ({ components, selectedComponent, handlePropChange }) => {
   const { t } = useTranslation();
-
   const [changeTheme, setChangeTheme] = useContext(Change_Theme_context);
+
   return (
     <div className="flex flex-col gap-4">
       <TitleSetter

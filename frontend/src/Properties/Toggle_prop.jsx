@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useMemo } from "react";
 import TitleSetter from "../Components/TitleSetter";
 import { FaToggleOn } from "react-icons/fa";
 import { Change_Theme_context } from "../Contexts";
@@ -8,20 +8,23 @@ import { GrLanguage } from "react-icons/gr";
 const Toggle_prop = ({ selectedComponent, handlePropChange }) => {
   const [changeTheme, setChangeTheme] = useContext(Change_Theme_context);
   const { t } = useTranslation();
-  const LanguagesOptions = [
-    {
-      title: "EN",
-    },
-    {
-      title: "AR",
-    },
-    {
-      title: "SP",
-    },
-    {
-      title: "FR",
-    },
-  ];
+  const LanguagesOptions = useMemo(
+    () => [
+      {
+        title: "EN",
+      },
+      {
+        title: "AR",
+      },
+      {
+        title: "SP",
+      },
+      {
+        title: "FR",
+      },
+    ],
+    []
+  );
 
   return (
     <div className="flex flex-col gap-4">

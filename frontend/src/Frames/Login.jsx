@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useMemo, useState } from "react";
 import { FaUser } from "react-icons/fa";
 import { IoMdEye, IoMdEyeOff } from "react-icons/io";
 import { RiLockPasswordFill } from "react-icons/ri";
@@ -35,7 +35,7 @@ const Login = () => {
       setCredentialsErr(false);
       return;
     }
-    const token = "user-token-from-api";
+    const token = "user-token-from-api-or-from-backend";
     localStorage.setItem("username", username);
     localStorage.setItem("fname", fname);
     localStorage.setItem("lname", lname);
@@ -43,53 +43,56 @@ const Login = () => {
     notifyS("Logged in successfully!");
   };
 
-  const Fields = [
-    {
-      id: 1,
-      icon: FaUser,
-      title: "Username",
-      type: "text",
-      placeholder: "Your username . . .",
-      value: username,
-      onchange: (e) => setUsername(e.target.value),
-    },
-    {
-      id: 2,
-      icon: FaUser,
-      title: "First Name",
-      type: "text",
-      placeholder: "Your first name . . .",
-      value: fname,
-      onchange: (e) => setFname(e.target.value),
-    },
-    {
-      id: 3,
-      icon: FaUser,
-      title: "Last Name",
-      type: "text",
-      placeholder: "Your last name . . .",
-      value: lname,
-      onchange: (e) => setLname(e.target.value),
-    },
-    {
-      id: 4,
-      icon: RiLockPasswordFill,
-      icon2: password ? (
-        <button
-          type="button"
-          onClick={() => setShowPassword(!showPassword)}
-          className="text-white"
-        >
-          {showPassword ? <IoMdEyeOff /> : <IoMdEye />}
-        </button>
-      ) : null,
-      title: "Password",
-      placeholder: "Your password . . .",
-      type: showPassword ? "text" : "password",
-      value: password,
-      onchange: (e) => setPassword(e.target.value),
-    },
-  ];
+  const Fields = useMemo(
+    () => [
+      {
+        id: 1,
+        icon: FaUser,
+        title: "Username",
+        type: "text",
+        placeholder: "Your username . . .",
+        value: username,
+        onchange: (e) => setUsername(e.target.value),
+      },
+      {
+        id: 2,
+        icon: FaUser,
+        title: "First Name",
+        type: "text",
+        placeholder: "Your first name . . .",
+        value: fname,
+        onchange: (e) => setFname(e.target.value),
+      },
+      {
+        id: 3,
+        icon: FaUser,
+        title: "Last Name",
+        type: "text",
+        placeholder: "Your last name . . .",
+        value: lname,
+        onchange: (e) => setLname(e.target.value),
+      },
+      {
+        id: 4,
+        icon: RiLockPasswordFill,
+        icon2: password ? (
+          <button
+            type="button"
+            onClick={() => setShowPassword(!showPassword)}
+            className="text-white"
+          >
+            {showPassword ? <IoMdEyeOff /> : <IoMdEye />}
+          </button>
+        ) : null,
+        title: "Password",
+        placeholder: "Your password . . .",
+        type: showPassword ? "text" : "password",
+        value: password,
+        onchange: (e) => setPassword(e.target.value),
+      },
+    ],
+    [username, fname, lname, password, showPassword]
+  );
 
   return (
     <div className="h-screen w-full flex items-center justify-center bg-gradient-to-br from-gray-900 via-gray-800 to-black">

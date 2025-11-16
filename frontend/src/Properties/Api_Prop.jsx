@@ -1,5 +1,5 @@
 // src/Props/API_Prop.js
-import React, { useContext, useState } from "react";
+import React, { useContext, useMemo, useState } from "react";
 import TitleSetter from "../Components/TitleSetter";
 import { VscJson } from "react-icons/vsc";
 import { VscSymbolMethod } from "react-icons/vsc";
@@ -20,7 +20,7 @@ const API_Prop = ({ selectedComponent, handlePropChange }) => {
     handlePropChange("body", tempBody);
   };
 
-  const methodsWithBody = ["POST", "PUT", "PATCH", "DELETE"];
+  const methodsWithBody = useMemo(() => ["POST", "PUT", "PATCH", "DELETE"], []);
 
   return (
     <div className="space-y-3">

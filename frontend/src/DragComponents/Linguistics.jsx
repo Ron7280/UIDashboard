@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useMemo, useState } from "react";
 import { API } from "../Api_Link";
 import Loader from "./Loader";
 import { US, ES, FR, DE, JP, IT, SY, KR } from "country-flag-icons/react/3x2";
@@ -25,17 +25,19 @@ const Linguistics = ({ props }) => {
   const { t } = useTranslation();
   const { notifyS, notifyE, notifyW, notifyI } = Alert({ changeTheme });
 
-  const languages = [
-    { lang: "English", code: "English", Flag: US },
-    { lang: "Arabic", code: "Arabic", Flag: SY },
-    { lang: "Spanish", code: "Spanish", Flag: ES },
-    { lang: "French", code: "French", Flag: FR },
-    { lang: "German", code: "German", Flag: DE },
-    { lang: "Japanese", code: "Japanese", Flag: JP },
-    { lang: "Korean", code: "Korean", Flag: KR },
-    { lang: "Italian", code: "Italian", Flag: IT },
-  ];
-
+  const languages = useMemo(
+    () => [
+      { lang: "English", code: "English", Flag: US },
+      { lang: "Arabic", code: "Arabic", Flag: SY },
+      { lang: "Spanish", code: "Spanish", Flag: ES },
+      { lang: "French", code: "French", Flag: FR },
+      { lang: "German", code: "German", Flag: DE },
+      { lang: "Japanese", code: "Japanese", Flag: JP },
+      { lang: "Korean", code: "Korean", Flag: KR },
+      { lang: "Italian", code: "Italian", Flag: IT },
+    ],
+    []
+  );
   const generateWords = async () => {
     setGenClicked(true);
     setTimeout(() => setGenClicked(false), 100);

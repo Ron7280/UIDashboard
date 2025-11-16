@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useContext } from "react";
+import React, { useState, useEffect, useRef, useContext, useMemo } from "react";
 import Loader from "./Loader";
 import { Change_Theme_context, Save_To_Notepad_context } from "../Contexts";
 import { GiNetworkBars } from "react-icons/gi";
@@ -349,38 +349,40 @@ const Sort = ({ props }) => {
     else if (algorithm === "radix") await radixSort();
   };
 
-  const buttons = [
-    {
-      label: t("DragCompo.Sort.SortBTN"),
-      onClick: handleSort,
-      disabled: isSorting,
-      color: " bg-mainColor",
-      content: isSorting ? (
-        <Loader type="dots" color="#ffffff" color2="#ffffff" />
-      ) : (
-        t("DragCompo.Sort.SortBTN")
-      ),
-    },
-    {
-      label: t("DragCompo.Sort.StopBTN"),
-      onClick: stopSorting,
-      disabled: !isSorting,
-      color: "bg-red-500 ",
-    },
-    {
-      label: t("DragCompo.Sort.NewData"),
-      onClick: resetArray,
-      disabled: isSorting,
-      color: "bg-green-500 ",
-    },
-    {
-      label: t("DragCompo.Sort.ResetArray"),
-      onClick: resetCurrentArray,
-      disabled: isSorting,
-      color: "bg-orange-400 ",
-    },
-  ];
-
+  const buttons = useMemo(
+    () => [
+      {
+        label: t("DragCompo.Sort.SortBTN"),
+        onClick: handleSort,
+        disabled: isSorting,
+        color: " bg-mainColor",
+        content: isSorting ? (
+          <Loader type="dots" color="#ffffff" color2="#ffffff" />
+        ) : (
+          t("DragCompo.Sort.SortBTN")
+        ),
+      },
+      {
+        label: t("DragCompo.Sort.StopBTN"),
+        onClick: stopSorting,
+        disabled: !isSorting,
+        color: "bg-red-500 ",
+      },
+      {
+        label: t("DragCompo.Sort.NewData"),
+        onClick: resetArray,
+        disabled: isSorting,
+        color: "bg-green-500 ",
+      },
+      {
+        label: t("DragCompo.Sort.ResetArray"),
+        onClick: resetCurrentArray,
+        disabled: isSorting,
+        color: "bg-orange-400 ",
+      },
+    ],
+    [isSorting, handleSort, stopSorting, resetArray, resetCurrentArray, t]
+  );
   return (
     <div
       title={props.title}

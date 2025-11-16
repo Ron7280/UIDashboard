@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useMemo } from "react";
 import TitleSetter from "../Components/TitleSetter";
 import { GrAction } from "react-icons/gr";
 import { Change_Theme_context } from "../Contexts";
@@ -13,16 +13,19 @@ const Linguistics_Prop = ({
 }) => {
   const [changeTheme, setChangeTheme] = useContext(Change_Theme_context);
   const { t } = useTranslation();
-  const languages = [
-    "English",
-    "Arabic",
-    "Spanish",
-    "French",
-    "German",
-    "Japanese",
-    "Korean",
-    "Italian",
-  ];
+  const languages = useMemo(
+    () => [
+      "English",
+      "Arabic",
+      "Spanish",
+      "French",
+      "German",
+      "Japanese",
+      "Korean",
+      "Italian",
+    ],
+    []
+  );
 
   return (
     <div className="flex flex-col gap-4">
