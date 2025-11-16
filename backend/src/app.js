@@ -35,4 +35,11 @@ app.get("/", (req, res) => {
 
 app.use("/dashboard", require("./Routes/Dashboard.js"));
 
+function sum(a, b) {
+  debugger; // execution will pause here
+  return a + b;
+}
+
+console.log(sum(2, 3));
+
 module.exports = app;

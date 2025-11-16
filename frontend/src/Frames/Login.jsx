@@ -1,11 +1,10 @@
-import React, { useContext, useState } from "react";
+import { useContext, useState } from "react";
 import { FaUser } from "react-icons/fa";
 import { IoMdEye, IoMdEyeOff } from "react-icons/io";
 import { RiLockPasswordFill } from "react-icons/ri";
 import Alert from "../Components/Alert";
 import { Change_Theme_context } from "../Contexts";
 import { IoIosLogIn } from "react-icons/io";
-import { useNavigate } from "react-router-dom";
 import { BiSolidDashboard } from "react-icons/bi";
 import { useAuth } from "../AuthContext";
 
@@ -14,21 +13,26 @@ const Login = () => {
   const [username, setUsername] = useState("");
   const [fname, setFname] = useState("");
   const [lname, setLname] = useState("");
+  const [passwordErr, setPasswordErr] = useState(false);
+  const [credentialsErr, setCredentialsErr] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [changeTheme, setChangeTheme] = useContext(Change_Theme_context);
   const { notifyS, notifyE, notifyW, notifyI } = Alert({ changeTheme });
-  const navigate = useNavigate();
   const { login } = useAuth();
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     if (!username || !password || !fname || !lname) {
-      notifyI("Please enter all credentials");
+      notifyW("Please enter all credentials");
+      setCredentialsErr(true);
+      setPasswordErr(false);
       return;
     }
     if (password.length < 8) {
-      notifyW("Password is too short");
+      notifyE("Password is too short");
+      setPasswordErr(true);
+      setCredentialsErr(false);
       return;
     }
     const token = "user-token-from-api";
@@ -41,6 +45,7 @@ const Login = () => {
 
   const Fields = [
     {
+      id: 1,
       icon: FaUser,
       title: "Username",
       type: "text",
@@ -49,6 +54,7 @@ const Login = () => {
       onchange: (e) => setUsername(e.target.value),
     },
     {
+      id: 2,
       icon: FaUser,
       title: "First Name",
       type: "text",
@@ -57,6 +63,7 @@ const Login = () => {
       onchange: (e) => setFname(e.target.value),
     },
     {
+      id: 3,
       icon: FaUser,
       title: "Last Name",
       type: "text",
@@ -65,6 +72,7 @@ const Login = () => {
       onchange: (e) => setLname(e.target.value),
     },
     {
+      id: 4,
       icon: RiLockPasswordFill,
       icon2: password ? (
         <button
@@ -98,7 +106,11 @@ const Login = () => {
             return (
               <div className="flex flex-col gap-1">
                 <div className="text-gray-200 mb-1 flex items-center justify-between">
-                  <div className="flex items-center gap-2">
+                  <div
+                    className={`flex items-center gap-2 ${
+                      passwordErr && f.id === 4 ? "text-[rgb(255,0,0)]" : ""
+                    }`}
+                  >
                     <f.icon size={20} />
                     {f.title}
                   </div>
@@ -106,7 +118,9 @@ const Login = () => {
                 </div>
                 <input
                   type={f.type}
-                  className="p-3 rounded-lg bg-white/20 text-white placeholder-gray-300 border border-white/30 outline-none"
+                  className={`p-3 rounded-lg bg-white/20 text-white border-white/30 placeholder-gray-300 border-2  outline-none
+                    ${passwordErr && f.id === 4 ? "border-[rgb(255,0,0)]" : ""}
+                    ${credentialsErr ? "border-[rgb(255,119,0)]" : ""}`}
                   placeholder={f.placeholder}
                   value={f.value}
                   onChange={f.onchange}
