@@ -10,6 +10,12 @@ import { IoRemoveCircle } from "react-icons/io5";
 import { US, ES, FR, SY } from "country-flag-icons/react/3x2";
 import { BiSolidDashboard } from "react-icons/bi";
 import { useTranslation } from "react-i18next";
+import { FaCircleUser } from "react-icons/fa6";
+import { useState } from "react";
+import { FaUser } from "react-icons/fa";
+import { FaRegAddressCard } from "react-icons/fa";
+import { IoIosLogOut } from "react-icons/io";
+import { useNavigate } from "react-router-dom";
 
 const DashboardHeader = ({
   changeTheme,
@@ -27,7 +33,11 @@ const DashboardHeader = ({
   componentsLength,
 }) => {
   const { t } = useTranslation();
-
+  const [showUserPopup, setShowUserPopup] = useState();
+  const navigate = useNavigate();
+  const Username = localStorage.getItem("username");
+  const Fname = localStorage.getItem("fname");
+  const Lname = localStorage.getItem("lname");
   const LanguagesOptions = [
     { title: "EN", flag: US },
     { title: "AR", flag: SY },
@@ -47,6 +57,38 @@ const DashboardHeader = ({
       </div>
 
       <div className="flex w-[50%] justify-end items-center gap-5 text-xl">
+        <div
+          className="relative"
+          onMouseEnter={() => setShowUserPopup(true)}
+          onMouseLeave={() => setShowUserPopup(false)}
+        >
+          <FaCircleUser size={25} className="cursor-pointer" />
+
+          {showUserPopup && (
+            <div
+              className={`absolute right-0 w-60 p-3 shadow-lg shadow-black rounded-lg z-50 text-base bg-white ${
+                changeTheme ? " text-mainColor2" : " text-mainColor"
+              }`}
+            >
+              <div className="flex flex-col items-start gap-2">
+                <div className="flex items-center gap-1">
+                  <FaUser size={20} /> User : {Username || "Guest"}
+                </div>
+                <div className="flex items-center gap-1">
+                  <FaRegAddressCard size={20} />
+                  Full Name : {Fname || "Guest"} {Lname || "Guest"}
+                </div>
+                <button
+                  className="flex items-center gap-2 justify-center w-full bg-red-500
+                 rounded-lg text-white font-semibold p-1"
+                  onClick={() => navigate("/")}
+                >
+                  Log Out <IoIosLogOut size={20} />
+                </button>
+              </div>
+            </div>
+          )}
+        </div>
         <div ref={dropdownRef} className="relative w-[12%]">
           <div
             className={`flex items-center justify-center gap-2 w-full p-0.5 border-2 rounded-xl cursor-pointer ${

@@ -18,6 +18,7 @@ import {
   Video_Interact_context,
   Video_Progress_context,
 } from "./Contexts";
+import Login from "./Frames/Login";
 
 function App() {
   const [ask_AI, setAsk_AI] = useState({ active: false, targetTitle: "" });
@@ -88,7 +89,11 @@ function App() {
                                 value={[save_ToNotepad, setSave_ToNotepad]}
                               >
                                 <Routes>
-                                  <Route path="/" element={<MainDashboard />} />
+                                  <Route path="/" element={<Login />} />
+                                  <Route
+                                    path="/dashboard"
+                                    element={<MainDashboard />}
+                                  />
                                 </Routes>
                               </Save_To_Notepad_context.Provider>
                             </Set_MainName_context.Provider>

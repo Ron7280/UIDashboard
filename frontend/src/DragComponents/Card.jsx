@@ -6,6 +6,7 @@ import { useTranslation } from "react-i18next";
 const Card = ({ props, title, content }) => {
   const [changeTheme, setChangeTheme] = useContext(Change_Theme_context);
   const [cardContent, setCardContent] = useState(content);
+  const Username = localStorage.getItem("username");
   const { t } = useTranslation();
 
   return (

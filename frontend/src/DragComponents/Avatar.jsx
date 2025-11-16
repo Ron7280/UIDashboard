@@ -3,6 +3,7 @@ import { Change_Theme_context } from "../Contexts";
 
 const Avatar = ({ src, name }) => {
   const [changeTheme, setChangeTheme] = useContext(Change_Theme_context);
+  const Username = localStorage.getItem("username");
   return (
     <div
       className={`shadow-md w-full h-full pl-2 pr-2 rounded-xl ${
@@ -15,7 +16,7 @@ const Avatar = ({ src, name }) => {
           changeTheme ? "text-white" : "text-gray-700 "
         }`}
       >
-        {name}
+        {Username || name}
       </div>
     </div>
   );
