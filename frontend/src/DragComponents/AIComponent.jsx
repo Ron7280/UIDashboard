@@ -8,7 +8,7 @@ import {
 import Loader from "./Loader";
 import { useTranslation } from "react-i18next";
 import { IoIosSave } from "react-icons/io";
-import { API } from "../Api_Link";
+import { API } from "../API_URL";
 
 const AIComponent = ({ props, response, onChangePrompt }) => {
   const [input, setInput] = useState("");

@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { IoSpeedometer } from "react-icons/io5";
 import { Change_Theme_context } from "../Contexts";
 import { useTranslation } from "react-i18next";
-import { API } from "../Api_Link";
+import { API } from "../API_URL";
 
 const Speedometer_Prop = ({ selectedComponent, handlePropChange }) => {
   const [changeTheme, setChangeTheme] = useContext(Change_Theme_context);

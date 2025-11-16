@@ -1,5 +1,5 @@
 import React, { useContext, useMemo, useState } from "react";
-import { API } from "../Api_Link";
+import { API } from "../API_URL";
 import Loader from "./Loader";
 import { US, ES, FR, DE, JP, IT, SY, KR } from "country-flag-icons/react/3x2";
 import { Change_Theme_context, Save_To_Notepad_context } from "../Contexts";
@@ -38,6 +38,7 @@ const Linguistics = ({ props }) => {
     ],
     []
   );
+
   const generateWords = async () => {
     setGenClicked(true);
     setTimeout(() => setGenClicked(false), 100);

@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import ReactSpeedometer from "react-d3-speedometer";
 import Loader from "./Loader";
 import { Change_Theme_context } from "../Contexts";
-import { API } from "../Api_Link";
+import { API } from "../API_URL";
 
 const getNestedValue = (obj, keyPath) => {
   return keyPath
