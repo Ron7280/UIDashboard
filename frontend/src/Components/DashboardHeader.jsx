@@ -36,7 +36,6 @@ const DashboardHeader = ({
   const { t } = useTranslation();
   const { logout } = useAuth();
   const [showUserPopup, setShowUserPopup] = useState();
-  const navigate = useNavigate();
   const Username = localStorage.getItem("username");
   const Fname = localStorage.getItem("fname");
   const Lname = localStorage.getItem("lname");
@@ -50,6 +49,7 @@ const DashboardHeader = ({
   const handleLogOut = () => {
     logout();
   };
+
   return (
     <div
       className={`flex items-center h-[5%] justify-between ${
