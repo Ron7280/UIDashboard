@@ -123,7 +123,11 @@ const Login = () => {
                   type={f.type}
                   className={`p-3 rounded-lg bg-white/20 text-white border-white/30 placeholder-gray-300 border-2  outline-none
                     ${passwordErr && f.id === 4 ? "border-[rgb(255,0,0)]" : ""}
-                    ${credentialsErr ? "border-[rgb(255,119,0)]" : ""}`}
+                    ${
+                      credentialsErr && !f.value
+                        ? "border-[rgb(255,119,0)]"
+                        : ""
+                    }`}
                   placeholder={f.placeholder}
                   value={f.value}
                   onChange={f.onchange}
