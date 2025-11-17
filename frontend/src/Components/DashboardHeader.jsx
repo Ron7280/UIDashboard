@@ -33,12 +33,14 @@ const DashboardHeader = ({
   set_MainName,
   componentsLength,
 }) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const { logout } = useAuth();
   const [showUserPopup, setShowUserPopup] = useState();
   const Username = localStorage.getItem("username");
   const Fname = localStorage.getItem("fname");
   const Lname = localStorage.getItem("lname");
+
+  const isArabic = i18n.language === "ar" || lang === "AR";
 
   const LanguagesOptions = useMemo(
     () => [
@@ -75,24 +77,31 @@ const DashboardHeader = ({
 
           {showUserPopup && (
             <div
-              className={`absolute right-0 w-60 p-3 shadow-lg shadow-black rounded-lg z-50 text-base bg-white ${
+              className={`absolute ${
+                isArabic ? "left-0" : "right-0"
+              } w-60 p-3 shadow-lg shadow-black rounded-lg z-50 text-base bg-white ${
                 changeTheme ? " text-mainColor2" : " text-mainColor"
               }`}
             >
               <div className="flex flex-col items-start gap-2">
                 <div className="flex items-center gap-1">
-                  <FaUser size={20} /> User : {Username || "Guest"}
+                  <FaUser size={20} /> {t("Dashboard.User")}{" "}
+                  {Username || t("Dashboard.Guest")}
                 </div>
-                <div className="flex items-center gap-1">
-                  <FaRegAddressCard size={20} />
-                  Full Name : {Fname || "Guest"} {Lname || "Guest"}
+                <div className="flex flex-col gap-1">
+                  <div className="flex items-center gap-1">
+                    <FaRegAddressCard size={20} />
+                    {t("Dashboard.FullName")}
+                  </div>
+                  {Fname || t("Dashboard.Guest")}{" "}
+                  {Lname || t("Dashboard.Guest")}
                 </div>
                 <button
                   className="flex items-center gap-2 justify-center w-full bg-red-500
                  rounded-lg text-white font-semibold p-1"
                   onClick={handleLogOut}
                 >
-                  Log Out <IoIosLogOut size={20} />
+                  {t("Dashboard.LogOut")} <IoIosLogOut size={20} />
                 </button>
               </div>
             </div>

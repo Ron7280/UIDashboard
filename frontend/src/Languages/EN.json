@@ -3,7 +3,11 @@
     "Dashboard": "Dashboard",
     "FullScreen": "Full Screen",
     "EditMode": "Edit Mode",
-    "Drop": "Drop components here"
+    "Drop": "Drop components here",
+    "User":"User :",
+    "FullName":"Full Name",
+    "Guest":"Guest",
+    "LogOut":"Log Out"
   },
   "LeftSide":{
     "UI":"UI Components",

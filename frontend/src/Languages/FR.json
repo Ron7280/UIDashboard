@@ -3,7 +3,11 @@
     "Dashboard": "Tableau de bord",
     "FullScreen": "Plein Écran",
     "EditMode": "Mode Édition",
-    "Drop": "Déposez les composants ici"
+    "Drop": "Déposez les composants ici",
+    "User": "Utilisateur :",
+    "FullName": "Nom complet",
+    "Guest": "Invité",
+    "LogOut": "Se déconnecter"
   },
   "LeftSide":{
     "UI":"Composants UI",

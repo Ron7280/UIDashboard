@@ -3,7 +3,11 @@
     "Dashboard": "Panel",
     "FullScreen": "Pantalla Completa",
     "EditMode": "Modo de Edición",
-    "Drop": "Suelta los componentes aquí"
+    "Drop": "Suelta los componentes aquí",
+    "User": "Usuario :",
+    "FullName": "Nombre completo",
+    "Guest": "Invitado",
+    "LogOut": "Cerrar sesión"
   },
   "LeftSide":{
     "UI":"Componentes UI",

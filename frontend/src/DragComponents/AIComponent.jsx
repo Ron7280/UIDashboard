@@ -95,7 +95,7 @@ const AIComponent = ({ props, response, onChangePrompt }) => {
           disabled={loading}
           className={` text-white rounded-lg p-3 ${
             btnClicked ? "shadow-inner" : "shadow-md"
-          } shadow-black  transition disabled:opacity-50
+          } shadow-black font-semibold transition disabled:opacity-50
             ${
               changeTheme
                 ? "bg-mainColor2 hover:bg-SecondryTeal"
